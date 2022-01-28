@@ -13,6 +13,6 @@ export const Heading = styled.h1<Props>`
   font-size: ${({ theme, small }) => (small ? theme.fontSize.m : theme.fontSize.xl)};
   color: ${({ theme }) => theme.primaryColor};
   @media (max-width: 499px) {
-    font-size: ${({ theme }) => theme.fontSize.l};
+    font-size: ${({ theme, small }) => (small ? theme.fontSize.m : theme.fontSize.l)};
   }
 `;

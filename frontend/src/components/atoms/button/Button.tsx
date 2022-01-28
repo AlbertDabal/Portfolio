@@ -10,4 +10,8 @@ export const Button = styled.button`
   text-transform: uppercase;
   background-color: transparent;
   color: ${({ theme }) => theme.primaryColor};
+
+  @media (max-width: 499px) {
+    padding: 4px 30px;
+  }
 `;

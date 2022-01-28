@@ -33,7 +33,7 @@ const Wrapper = styled.nav`
 
 const Menu = styled.ul`
   display: flex;
-  width: 35%;
+  width: 700px;
   > .active {
     border-bottom: 1px solid #333;
   }
@@ -46,7 +46,7 @@ export const NavbarDesktop = () => {
       <Wrapper>
         <Menu>
           {NavbarData.map((item) => (
-            <StyledLink activeClass="active" to="section1" spy={true} smooth={true} offset={-70} duration={500}>
+            <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>
               {item.name.toUpperCase()}
             </StyledLink>
           ))}
