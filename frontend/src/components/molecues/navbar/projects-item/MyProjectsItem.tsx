@@ -10,10 +10,18 @@ const Image = styled.img`
   height: 35vh;
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  align-items: flex-start;
+`;
 
 interface Props {
   dataItem: Project;
+  index?: number;
+  length?: number;
 }
 
 interface Project {
@@ -24,11 +32,11 @@ interface Project {
   link: string;
 }
 
-export const MyProjectsItem = ({ dataItem }: Props) => {
+export const MyProjectsItem = ({ dataItem, index, length }: Props) => {
   return (
     <Wrapper>
       <Paragraph small bold>
-        01/05
+        {`0${index}/0${length}`}
       </Paragraph>
 
       <Paragraph bold>{dataItem.name}</Paragraph>
@@ -37,7 +45,7 @@ export const MyProjectsItem = ({ dataItem }: Props) => {
         {dataItem.description}
       </Paragraph>
       <Button>read more</Button>
-      <Image src={dataItem.images} />
+      <Image src={process.env.PUBLIC_URL + '/images/projects' + dataItem.images} />
     </Wrapper>
   );
 };

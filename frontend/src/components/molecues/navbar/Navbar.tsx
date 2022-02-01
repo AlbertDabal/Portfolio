@@ -12,5 +12,5 @@ export const Navbar = () => {
     window.addEventListener('resize', updateWidthAndHeight);
     return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
-  return <>{window.innerWidth >= 950 ? <NavbarDesktop /> : <NavbarMobile />}</>;
+  return <>{window.innerWidth >= 1000 ? <NavbarDesktop /> : <NavbarMobile />}</>;
 };

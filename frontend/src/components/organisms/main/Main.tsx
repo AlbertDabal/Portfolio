@@ -5,14 +5,18 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   height: 100vh;
+  width: 93%;
   display: flex;
   align-items: flex-start;
   padding-top: 40vh;
 
-  padding-left: 10px;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 45vh;
+
+  @media (min-width: 499px) {
+    width: 80%;
+  }
 `;
 
 export const Main = () => {

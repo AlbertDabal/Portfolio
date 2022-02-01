@@ -28,24 +28,39 @@ const Describe = styled.div`
   padding: 10%;
 `;
 
+const Item = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  @media (min-width: 499px) {
+    width: 80%;
+    display: grid;
+    justify-items: center;
+    margin-top: 10vh;
+    grid-template-columns: repeat(4, 1fr);
+  }
+`;
+
 export const Skills = () => {
   return (
     <BasicTemplate index={2}>
       <Wrapper>
         <StyledHeading bold>Skills</StyledHeading>
-
-        {SkillData.map((item) => (
-          <Main>
-            <Paragraph bold other>
-              {item.name}
-            </Paragraph>
-            <Describe>
-              {item.items.map((item) => (
-                <Paragraph small>{item}</Paragraph>
-              ))}
-            </Describe>
-          </Main>
-        ))}
+        <Item>
+          {SkillData.map((item) => (
+            <Main>
+              <Paragraph bold other>
+                {item.name}
+              </Paragraph>
+              <Describe>
+                {item.items.map((item) => (
+                  <Paragraph small>{item}</Paragraph>
+                ))}
+              </Describe>
+            </Main>
+          ))}
+        </Item>
       </Wrapper>
     </BasicTemplate>
   );

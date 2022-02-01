@@ -15,7 +15,7 @@ const WrapperMain = styled.div`
 
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: 400;
+  font-weight: 800;
   color: ${({ theme }) => theme.primaryColor};
   cursor: pointer;
   user-select: none;
@@ -27,15 +27,17 @@ const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   text-align: center;
+  align-items: center;
 
   padding: 30px 10px;
 `;
 
 const Menu = styled.ul`
   display: flex;
+  align-items: center;
   width: 700px;
   > .active {
-    border-bottom: 1px solid #333;
+    color: ${({ theme }) => theme.themeColor};
   }
   justify-content: space-between;
 `;

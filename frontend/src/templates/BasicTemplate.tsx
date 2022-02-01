@@ -10,13 +10,30 @@ interface Props {
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  width: 90%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+
+  @media (min-width: 499px) {
+    padding-top: 30px;
+  }
+
+  @media (min-width: 499px) {
+    width: 85%;
+  }
 `;
 
 const Main = styled.div`
   margin-top: 8vh;
   width: 90%;
+
+  @media (min-width: 499px) {
+    padding: 0% 3%;
+  }
+
+  @media (max-width: 1180px) {
+    padding: 0% 1%;
+  }
 `;
 
 export const BasicTemplate = ({ children, index, id }: Props) => {

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 82vh;
+  height: 80vh;
 `;
 
 const Top = styled.div`
@@ -33,6 +33,7 @@ const Top = styled.div`
 `;
 
 const Bottom = styled.div`
+  margin-top: 20px;
   > svg {
     cursor: pointer;
     color: #585858;
@@ -44,16 +45,32 @@ const Bottom = styled.div`
 
 export const MyProjects = () => {
   const [selectItem, setSelectItem] = useState(0);
+
+  const NextProject = () => {
+    if (ProjectsData.length > selectItem + 1) {
+      setSelectItem(selectItem + 1);
+    } else {
+    }
+  };
+
+  const PrevProject = () => {
+    if (0 > selectItem - 1) {
+      setSelectItem(0);
+    } else {
+      setSelectItem(selectItem - 1);
+    }
+  };
+
   return (
     <BasicTemplate index={3} id="my-project">
       <Wrapper>
         <Top>
           <Heading bold>I created At</Heading>
-          <FiArrowRight />
+          <FiArrowRight onClick={() => NextProject()} />
         </Top>
-        <MyProjectsItem dataItem={ProjectsData[selectItem]} />
+        <MyProjectsItem index={selectItem + 1} length={ProjectsData.length} dataItem={ProjectsData[selectItem]} />
         <Bottom>
-          <FiArrowLeft />
+          <FiArrowLeft onClick={() => PrevProject()} />
         </Bottom>
       </Wrapper>
     </BasicTemplate>
