@@ -8,9 +8,19 @@ export const Navbar = () => {
     setWidth(window.innerWidth);
   };
 
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 100) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('resize', updateWidthAndHeight);
+    window.addEventListener('scroll', changeNavbarColor);
     return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
-  return <>{window.innerWidth >= 1000 ? <NavbarDesktop /> : <NavbarMobile />}</>;
+  return <>{window.innerWidth >= 1000 ? <NavbarDesktop colorChange={colorChange} /> : <NavbarMobile />}</>;
 };

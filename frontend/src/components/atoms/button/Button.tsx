@@ -3,12 +3,11 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   border: none;
-  border: 3px solid #0fe0d0;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
   padding: 8px 50px;
   text-transform: uppercase;
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.themeColor};
   color: ${({ theme }) => theme.primaryColor};
 
   @media (max-width: 499px) {

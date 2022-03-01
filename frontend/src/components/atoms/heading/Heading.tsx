@@ -12,7 +12,7 @@ export const Heading = styled.h1<Props>`
   font-weight: ${({ bold }) => (bold ? '800' : '400')};
   font-size: ${({ theme, small }) => (small ? theme.fontSize.m : theme.fontSize.xl)};
   color: ${({ theme }) => theme.primaryColor};
-  @media (max-width: 499px) {
+  @media (max-width: 800px) {
     font-size: ${({ theme, small }) => (small ? theme.fontSize.m : theme.fontSize.l)};
   }
 `;

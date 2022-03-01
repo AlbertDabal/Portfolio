@@ -1,6 +1,6 @@
 export const theme = {
   backgroundColor: 'hsl(0, 0%, 7%)',
-  themeColor: 'hsl(175, 87%, 47%)',
+  themeColor: 'hsl(216, 100%, 31%)',
   primaryColor: 'hsl(0, 0%, 100%)',
   secondaryColor: 'hsl(0, 0%, 71%)',
 

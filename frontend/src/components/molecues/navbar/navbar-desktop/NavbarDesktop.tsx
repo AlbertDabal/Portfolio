@@ -1,51 +1,61 @@
-import { Heading } from 'components/atoms/heading/Heading';
 import { NavbarData } from 'data/NavabarData';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import logo from 'images/logo.png';
 
-const WrapperMain = styled.div`
+interface Props {
+  colorChange?: boolean;
+}
+
+const WrapperMain = styled.div<Props>`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.backgroundColor};
+  z-index: 999;
   position: fixed;
   top: 0;
+  left: 0;
+  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')}};
+  transition: 0.8s all ease
+  
 `;
 
 const StyledLink = styled(Link)`
-  font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  color: ${({ theme }) => theme.primaryColor};
+  color: ${({ theme }) => '#333333'};
   cursor: pointer;
   user-select: none;
 `;
 
 const Wrapper = styled.nav`
-  width: 85%;
-  border-bottom: 1px solid ${({ theme }) => theme.secondaryColor};
+  /* border-bottom: 1px solid ${({ theme }) => theme.secondaryColor}; */
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
 
-  padding: 30px 10px;
+  padding: 1em 2em;
 `;
 
 const Menu = styled.ul`
   display: flex;
   align-items: center;
   width: 700px;
+
   > .active {
-    color: ${({ theme }) => theme.themeColor};
+    color: white;
   }
   justify-content: space-between;
 `;
 
-export const NavbarDesktop = () => {
+const Logo = styled.img``;
+
+export const NavbarDesktop = ({ colorChange }: Props) => {
   return (
-    <WrapperMain>
+    <WrapperMain colorChange={colorChange}>
       <Wrapper>
+        {console.log(colorChange)}
+        <Logo src={logo} />
         <Menu>
           {NavbarData.map((item) => (
             <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>
@@ -53,7 +63,6 @@ export const NavbarDesktop = () => {
             </StyledLink>
           ))}
         </Menu>
-        <Heading small>PL</Heading>
       </Wrapper>
     </WrapperMain>
   );

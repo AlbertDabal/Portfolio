@@ -9,6 +9,8 @@ const Wrapper = styled.nav`
   width: 100%;
   display: flex;
   background-color: ${({ theme }) => theme.backgroundColor};
+  z-index: 999;
+  height: 6vh;
   position: fixed;
   top: 0;
 

@@ -29,16 +29,16 @@ const Describe = styled.div`
 `;
 
 const Item = styled.div`
-  display: flex;
+  /* display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: column; */
 
   @media (min-width: 499px) {
-    width: 80%;
     display: grid;
-    justify-items: center;
     margin-top: 10vh;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 20% 20%;
+    column-gap: 20%;
+    row-gap: 15px;
   }
 `;
 
