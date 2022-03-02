@@ -14,18 +14,25 @@ const Wrapper = styled.div`
   justify-content: space-between;
 
   padding-top: 10vh;
+  @media (max-width: 1000px) {
+    padding-top: 2vh;
+  }
 `;
 
 const Info = styled.div`
   @media (max-width: 1000px) {
     padding-left: 0;
     height: 30vh;
+    padding-top: 50px;
   }
   padding-left: 10%;
   width: 100%;
+  height: 30vh;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-bottom: 30px;
 `;
 
 const Form = styled.form`
@@ -41,10 +48,11 @@ const Footer = styled.footer`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-top: 10vh;
+  margin-top: 4vh;
 
   @media (max-width: 1000px) {
     flex-direction: column;
+    margin-top: 2vh;
   }
 `;
 
@@ -52,11 +60,27 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
 `;
 
+const StyledHeading = styled(Heading)`
+  margin-bottom: 50px;
+
+  @media (max-width: 1000px) {
+    margin-bottom: 20px;
+  }
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  font-size: ${({ theme }) => theme.fontSize.l};
+  @media (max-width: 800px) {
+    font-size: ${({ theme }) => theme.fontSize.m};
+  }
+`;
+
 export const Contacts = () => {
   return (
     <BasicTemplate index={4} id="contacts">
       <Wrapper>
-        <Heading bold>Let’s talk!</Heading>
+        <StyledHeading bold>Contacts</StyledHeading>
+        <StyledParagraph bold>Let's Talk!</StyledParagraph>
         <Footer>
           <Form>
             <Input placeholder="Your Email" />

@@ -13,10 +13,9 @@ const WrapperMain = styled.div<Props>`
   z-index: 999;
   position: fixed;
   top: 0;
-  left: 0;
-  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')}};
   transition: 0.8s all ease;
-  
+  left: 0;
+  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')};
 `;
 
 const StyledLink = styled(Link)`
@@ -25,6 +24,7 @@ const StyledLink = styled(Link)`
   color: ${({ theme }) => '#333333'};
   cursor: pointer;
   user-select: none;
+  padding: 1.5em 1em;
 `;
 
 const Wrapper = styled.nav`
@@ -33,8 +33,7 @@ const Wrapper = styled.nav`
   justify-content: space-between;
   text-align: center;
   align-items: center;
-
-  padding: 1em 2em;
+  padding: 0em 2em;
 `;
 
 const Menu = styled.ul`
@@ -48,14 +47,19 @@ const Menu = styled.ul`
   justify-content: space-between;
 `;
 
-const Logo = styled.img``;
+const Logo = styled.img`
+  user-select: none;
+  cursor: pointer;
+`;
 
 export const NavbarDesktop = ({ colorChange }: Props) => {
   return (
     <WrapperMain colorChange={colorChange}>
       <Wrapper>
         {console.log(colorChange)}
-        <Logo src={logo} />
+        <Link to="main" spy={true} smooth={true} offset={-70} duration={500}>
+          <Logo src={logo} />
+        </Link>
         <Menu>
           {NavbarData.map((item) => (
             <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>

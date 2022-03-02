@@ -5,12 +5,17 @@ import { NavbarData } from 'data/NavabarData';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Heading } from 'components/atoms/heading/Heading';
 
-const Wrapper = styled.nav`
+interface Props {
+  colorChange?: boolean;
+}
+
+const Wrapper = styled.nav<Props>`
+  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')};
   width: 100%;
   display: flex;
-
+  transition: 0.8s all ease;
   z-index: 999;
-  height: 6vh;
+  height: 7.5vh;
   position: fixed;
   top: 0;
 
@@ -59,7 +64,7 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledHeading = styled(Heading)`
-  margin-top: 20vh;
+  margin-top: 10vh;
   color: black;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: 400;
@@ -72,18 +77,18 @@ const MainWrapper = styled.div`
 `;
 
 const Menu = styled.div`
-  height: 70vh;
+  height: 40vh;
   margin: 40% 20% 0% 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-export const NavbarMobile = () => {
+export const NavbarMobile = ({ colorChange }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Wrapper>
+    <Wrapper colorChange={colorChange}>
       {!isOpen ? (
         <StyledBiMenu onClick={() => setIsOpen(!isOpen)} />
       ) : (
@@ -105,7 +110,6 @@ export const NavbarMobile = () => {
               {item.name.toUpperCase()}
             </StyledLink>
           ))}
-          <StyledHeading>PL</StyledHeading>
         </Menu>
       </MainWrapper>
     </Wrapper>

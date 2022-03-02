@@ -22,5 +22,13 @@ export const Navbar = () => {
     window.addEventListener('scroll', changeNavbarColor);
     return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
-  return <>{window.innerWidth >= 1000 ? <NavbarDesktop colorChange={colorChange} /> : <NavbarMobile />}</>;
+  return (
+    <>
+      {window.innerWidth >= 1000 ? (
+        <NavbarDesktop colorChange={colorChange} />
+      ) : (
+        <NavbarMobile colorChange={colorChange} />
+      )}
+    </>
+  );
 };

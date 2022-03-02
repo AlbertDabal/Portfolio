@@ -60,6 +60,7 @@ export const Main = () => {
   return (
     <Wrapper id="main">
       <Image src={profile} />
+
       <Title>Hi, I am Albert</Title>
       <StyledParagraph small other>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's{' '}
