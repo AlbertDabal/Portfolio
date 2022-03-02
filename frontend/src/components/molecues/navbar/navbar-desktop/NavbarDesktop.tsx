@@ -15,7 +15,7 @@ const WrapperMain = styled.div<Props>`
   top: 0;
   left: 0;
   background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')}};
-  transition: 0.8s all ease
+  transition: 0.8s all ease;
   
 `;
 

@@ -65,7 +65,7 @@ export const MyProjects = () => {
     <BasicTemplate index={3} id="my-project">
       <Wrapper>
         <Top>
-          <Heading bold>I created At</Heading>
+          <Heading bold>My projects</Heading>
           <FiArrowRight onClick={() => NextProject()} />
         </Top>
         <MyProjectsItem index={selectItem + 1} length={ProjectsData.length} dataItem={ProjectsData[selectItem]} />

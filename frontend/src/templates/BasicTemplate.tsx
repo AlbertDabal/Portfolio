@@ -11,7 +11,7 @@ interface Props {
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 80%;
-  max-width: 1100px;
+  max-width: 1150px;
 `;
 
 const Main = styled.div``;
