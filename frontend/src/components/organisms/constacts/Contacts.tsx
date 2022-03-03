@@ -3,9 +3,11 @@ import { Heading } from 'components/atoms/heading/Heading';
 import { Input } from 'components/atoms/input/Input';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { TextArea } from 'components/atoms/textarea/TextArea';
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
+import emailjs from 'emailjs-com';
+import { Alert } from 'components/atoms/alert/Alert';
 
 const Wrapper = styled.div`
   display: flex;
@@ -56,10 +58,6 @@ const Footer = styled.footer`
   }
 `;
 
-const StyledButton = styled(Button)`
-  margin-top: 15px;
-`;
-
 const StyledHeading = styled(Heading)`
   margin-bottom: 50px;
 
@@ -75,18 +73,64 @@ const StyledParagraph = styled(Paragraph)`
   }
 `;
 
+const Submit = styled.input`
+  transition: 0.8s all ease;
+  &:hover {
+    opacity: 0.7;
+  }
+  cursor: pointer;
+  border: none;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: 800;
+  padding: 8px 50px;
+  text-transform: uppercase;
+  background-color: ${({ theme }) => theme.themeColor};
+  color: ${({ theme }) => theme.primaryColor};
+  border: 3px solid #003f9d;
+  text-decoration: none;
+
+  @media (max-width: 499px) {
+    padding: 4px 30px;
+  }
+`;
+
 export const Contacts = () => {
+  const [done, setDone] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const target: any = e.currentTarget;
+    const reset: any = e.target;
+
+    console.log(e.currentTarget);
+
+    emailjs.sendForm('gmail', 'template_xhvqv3e', target, `${process.env.REACT_APP_YOUR_USER_ID}`).then(
+      (result) => {
+        console.log(result.text);
+        setDone(false);
+        setTimeout(() => {}, 2000);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+    setDone(true);
+    reset.reset();
+  };
+
   return (
     <BasicTemplate index={4} id="contacts">
       <Wrapper>
+        {done && <Alert />}
         <StyledHeading bold>Contacts</StyledHeading>
         <StyledParagraph bold>Let's Talk!</StyledParagraph>
         <Footer>
-          <Form>
-            <Input placeholder="Your Email" />
-            <TextArea placeholder="Please describe your problem" />
-            <StyledButton>SEND EMAIL</StyledButton>
-          </Form>
+          <form onSubmit={sendEmail}>
+            <Input name="email" placeholder="Your Email" />
+            <TextArea name="message" placeholder="Please describe your problem" />
+            <Submit type="submit" value="SEND EMAIL" />
+          </form>
           <Info>
             <Paragraph bold other>
               PHONE

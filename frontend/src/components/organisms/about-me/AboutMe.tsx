@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 10vh;
 
   @media (min-width: 1200px) {
     flex-direction: row;
