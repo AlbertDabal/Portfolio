@@ -15,9 +15,5 @@ export const MyProjects = () => {
 
     return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
-  return (
-    <BasicTemplate index={3} id="my-project">
-      {window.innerWidth >= 1000 ? <MyProjectDesktop /> : <MyProjectMobile />}
-    </BasicTemplate>
-  );
+  return <>{window.innerWidth >= 1000 ? <MyProjectDesktop /> : <MyProjectMobile />}</>;
 };

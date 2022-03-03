@@ -6,11 +6,13 @@ import { MyProjectsItem } from 'components/molecues/navbar/projects-item/MyProje
 import { Heading } from 'components/atoms/heading/Heading';
 
 const Wrapper = styled.div`
+  height: 90vh;
+  width: 80%;
+  max-width: 1150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 90vh;
 `;
 
 const Top = styled.div`
@@ -58,7 +60,7 @@ export const MyProjectMobile = () => {
     }
   };
   return (
-    <Wrapper>
+    <Wrapper id="my-project">
       <Top>
         <Heading bold>My projects</Heading>
         <FiArrowRight onClick={() => NextProject()} />
