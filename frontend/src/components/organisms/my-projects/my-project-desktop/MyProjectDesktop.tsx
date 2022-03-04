@@ -11,29 +11,36 @@ interface Props {
   element?: number;
 }
 
-const Image = styled.img<Props>`
+const Image = styled.div<Props>`
   transition: 0.1s all ease;
   /* filter: grayscale(100%); */
   opacity: 0.1;
-
+  border: 1px solid red;
   &:nth-child(1) {
-    margin-left: 20vw;
+    margin-left: 2vw;
   }
   &:nth-last-child(1) {
   }
-  max-width: 90vw;
+  background-image: url('https://i.wpimg.pl/730x0/m.autokult.pl/350z-2cf75dd8822a6157ce2153781c4.jpg');
+  background-size: cover;
+  width: 65vw;
   height: 70vh;
+  margin-right: 2vw;
 `;
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 85vh;
+  height: 88vh;
   overflow-x: hidden;
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Slider = styled.div<Props>`
-  width: 100%;
+  margin-top: 10vh;
   display: flex;
+  flex-direction: row;
   position: absolute;
   transition: 1s all ease;
   left: 0;
@@ -58,15 +65,21 @@ const StyledHeading = styled(Heading)`
 
 const StyledButton = styled(Button)``;
 
+const Bottom = styled.div`
+  display: flex;
+`;
+
 export const MyProjectDesktop = () => {
   const [element, setElement] = useState(1);
 
   const NextElement = () => {
     if (ProjectsData.length > element) {
-      document.querySelector<HTMLElement>(`#slider img:nth-child(${element + 1})`)!.style.opacity = '1';
+      document.querySelector<HTMLElement>(`#slider div:nth-child(${element + 1})`)!.style.opacity = '1';
       setElement(element + 1);
 
-      document.getElementById('slider')!.style.transform = `translateX(calc(${element} * -58vw))`;
+      document.getElementById(
+        'slider'
+      )!.style.transform = `translateX(calc((${element} * -65vw) - (2vw * ${element})))`;
     } else {
     }
   };
@@ -80,33 +93,38 @@ export const MyProjectDesktop = () => {
       await setElement(element - 1);
 
       console.log(element);
-      document.getElementById('slider')!.style.transform = `translateX(calc(${test - 1} * -58vw))`;
+      document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -65vw) - (2vw * ${
+        test - 1
+      })`;
     }
   };
 
   useEffect(() => {
-    document.querySelector<HTMLElement>('#slider img:nth-child(1)')!.style.opacity = '1';
+    document.querySelector<HTMLElement>('#slider div:nth-child(1)')!.style.opacity = '1';
   });
 
   return (
-    <BasicTemplate index={5} id="my-project">
-      <>
-        <Wrapper>
-          <Top>
-            <Heading bold>My projects</Heading>
-            <Line />
-            <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
-          </Top>
+    <Wrapper id="my-project">
+      <Top>
+        <Heading bold>My projects</Heading>
+        <Line />
+        <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
+      </Top>
 
-          <Slider id="slider" length={ProjectsData.length}>
-            {ProjectsData.map((items) => (
-              <Image element={element} src={process.env.PUBLIC_URL + '/images/projects' + items.images} />
-            ))}
-          </Slider>
-        </Wrapper>
+      <Slider id="slider" length={ProjectsData.length}>
+        {ProjectsData.map((items) => (
+          <Image
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL + '/images/projects' + items.images})`
+            }}
+            element={element}
+          />
+        ))}
+      </Slider>
+      <Bottom>
         <StyledButton onClick={() => PrevProject()}>PREV</StyledButton>
         <StyledButton onClick={() => NextElement()}>NEXT</StyledButton>
-      </>
-    </BasicTemplate>
+      </Bottom>
+    </Wrapper>
   );
 };
