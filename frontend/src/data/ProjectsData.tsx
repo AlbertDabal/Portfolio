@@ -33,5 +33,12 @@ export const ProjectsData = [
     description: 'Strona internetowa dla firmy fotostudyjne.pl',
     images: '/project-2.png',
     link: 'https://www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190'
+  },
+  {
+    name: 'Fotostudyjne.pl',
+    technology: ['HTML 5', 'CSS', 'JavaScript', 'React', 'React Native'],
+    description: 'Strona internetowa dla firmy fotostudyjne.pl',
+    images: '/project-2.png',
+    link: 'https://www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190'
   }
 ];

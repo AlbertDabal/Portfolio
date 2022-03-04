@@ -9,20 +9,20 @@ import { Button } from 'components/atoms/button/Button';
 interface Props {
   length?: number;
   element?: number;
+  width?: number;
 }
 
 const Image = styled.div<Props>`
   transition: 0.2s all ease;
   /* filter: grayscale(100%); */
   opacity: 0.1;
-  border: 1px solid red;
   &:nth-child(1) {
-    margin-left: 2vw;
   }
   &:nth-last-child(1) {
   }
   background-image: url('https://i.wpimg.pl/730x0/m.autokult.pl/350z-2cf75dd8822a6157ce2153781c4.jpg');
   background-size: cover;
+  background-position: center;
   width: 65vw;
   height: 70vh;
   margin-right: 2vw;
@@ -31,7 +31,8 @@ const Image = styled.div<Props>`
 const Wrapper = styled.div`
   height: 88vh;
   overflow-x: hidden;
-  width: 96%;
+  width: 80%;
+  max-width: 1150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -43,7 +44,7 @@ const Slider = styled.div<Props>`
   flex-direction: row;
   position: absolute;
   transition: 1s all ease;
-  left: 0;
+  left: auto;
 `;
 
 const Top = styled.div`
@@ -69,9 +70,9 @@ const Bottom = styled.div`
   display: flex;
 `;
 
-export const MyProjectDesktop = () => {
+export const MyProjectDesktop = ({ width }: Props) => {
   const [element, setElement] = useState(1);
-
+  console.log(width);
   const NextElement = () => {
     if (ProjectsData.length > element) {
       console.log(element);

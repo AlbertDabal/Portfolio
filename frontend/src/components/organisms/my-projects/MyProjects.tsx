@@ -15,5 +15,5 @@ export const MyProjects = () => {
 
     return () => window.removeEventListener('resize', updateWidthAndHeight);
   });
-  return <>{window.innerWidth >= 1000 ? <MyProjectDesktop /> : <MyProjectMobile />}</>;
+  return <>{window.innerWidth >= 1000 ? <MyProjectDesktop width={width} /> : <MyProjectMobile />}</>;
 };
