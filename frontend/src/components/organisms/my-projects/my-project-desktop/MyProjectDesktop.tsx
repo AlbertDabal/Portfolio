@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Image = styled.div<Props>`
-  transition: 0.1s all ease;
+  transition: 0.2s all ease;
   /* filter: grayscale(100%); */
   opacity: 0.1;
   border: 1px solid red;
@@ -74,6 +74,9 @@ export const MyProjectDesktop = () => {
 
   const NextElement = () => {
     if (ProjectsData.length > element) {
+      console.log(element);
+      document.querySelector<HTMLElement>(`#slider div:nth-child(${element})`)!.style.opacity = '0.1';
+
       document.querySelector<HTMLElement>(`#slider div:nth-child(${element + 1})`)!.style.opacity = '1';
       setElement(element + 1);
 
@@ -85,22 +88,31 @@ export const MyProjectDesktop = () => {
   };
 
   const PrevProject = async () => {
-    if (3 > element) {
-      document.getElementById('slider')!.style.transform = `translateX(0)`;
-      setElement(1);
+    const test = element - 1;
+    if (element < 2) {
     } else {
-      const test = element - 1;
-      await setElement(element - 1);
-
-      console.log(element);
-      document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -65vw) - (2vw * ${
-        test - 1
-      })`;
+      if (element < 3) {
+        console.log(element);
+        document.getElementById('slider')!.style.transform = `translateX(0)`;
+        document.querySelector<HTMLElement>(`#slider div:nth-child(${test + 1})`)!.style.opacity = '0.1';
+        setElement(1);
+      } else {
+        await setElement(element - 1);
+        document.querySelector<HTMLElement>(`#slider div:nth-child(${test})`)!.style.opacity = '1';
+        document.querySelector<HTMLElement>(`#slider div:nth-child(${test + 1})`)!.style.opacity = '0.1';
+        console.log(element);
+        document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -65vw) - (2vw * ${
+          test - 1
+        })`;
+      }
     }
   };
 
   useEffect(() => {
-    document.querySelector<HTMLElement>('#slider div:nth-child(1)')!.style.opacity = '1';
+    if (element === 1) {
+      document.querySelector<HTMLElement>('#slider div:nth-child(1)')!.style.opacity = '1';
+    } else {
+    }
   });
 
   return (
