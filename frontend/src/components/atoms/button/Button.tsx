@@ -6,6 +6,7 @@ interface Props {
 }
 
 export const Button = styled.a<Props>`
+  user-select: none;
   border: none;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
@@ -15,7 +16,7 @@ export const Button = styled.a<Props>`
   color: ${({ theme }) => theme.primaryColor};
   border: 3px solid #003f9d;
   text-decoration: none;
-
+  cursor: pointer;
   @media (max-width: 499px) {
     padding: 4px 30px;
   }

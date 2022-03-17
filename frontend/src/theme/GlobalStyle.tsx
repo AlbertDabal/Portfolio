@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
         font-family: 'Rubik', sans-serif;
         overflow-x: hidden;
+        user-select:none;
 
 
 
