@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BiMenu, BiPlus } from 'react-icons/bi';
 import { NavbarData } from 'data/NavabarData';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Heading } from 'components/atoms/heading/Heading';
+import axios from 'axios';
 
 interface Props {
   colorChange?: boolean;
@@ -15,7 +16,7 @@ const Wrapper = styled.nav<Props>`
   display: flex;
   transition: 0.8s all ease;
   z-index: 999;
-  height: 7.5vh;
+  height: 8vh;
   position: fixed;
   top: 0;
 
@@ -63,17 +64,11 @@ const StyledLink = styled(Link)`
   user-select: none;
 `;
 
-const StyledHeading = styled(Heading)`
-  margin-top: 10vh;
-  color: black;
-  font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: 400;
-`;
-
 const MainWrapper = styled.div`
   background-color: white;
   width: 100%;
   height: 100vh;
+  transition: 0.3s all ease;
 `;
 
 const Menu = styled.div`
@@ -87,6 +82,22 @@ const Menu = styled.div`
 export const NavbarMobile = ({ colorChange }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const GetData = async () => {
+      try {
+        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const res = await axios({ url: `./locales/${lang}/Navbar.json` });
+        setData(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    GetData();
+  }, []);
+
   return (
     <Wrapper colorChange={colorChange}>
       {!isOpen ? (
@@ -95,21 +106,22 @@ export const NavbarMobile = ({ colorChange }: Props) => {
         <StyledBiPlus onClick={() => setIsOpen(!isOpen)} />
       )}
 
-      <MainWrapper style={isOpen ? { display: 'flex' } : { display: 'none' }}>
+      <MainWrapper style={isOpen ? { display: 'flex' } : { display: 'flex', opacity: '0' }}>
         <Menu>
-          {NavbarData.map((item) => (
-            <StyledLink
-              onClick={() => setIsOpen(!isOpen)}
-              activeClass="active"
-              to={item.link}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              {item.name.toUpperCase()}
-            </StyledLink>
-          ))}
+          {data &&
+            data.map((item: { link: string; name: string }) => (
+              <StyledLink
+                onClick={() => setIsOpen(!isOpen)}
+                activeClass="active"
+                to={item.link}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                {item.name.toUpperCase()}
+              </StyledLink>
+            ))}
         </Menu>
       </MainWrapper>
     </Wrapper>

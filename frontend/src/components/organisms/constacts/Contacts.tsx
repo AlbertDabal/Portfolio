@@ -3,11 +3,12 @@ import { Heading } from 'components/atoms/heading/Heading';
 import { Input } from 'components/atoms/input/Input';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { TextArea } from 'components/atoms/textarea/TextArea';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
 import emailjs from 'emailjs-com';
 import { Alert } from 'components/atoms/alert/Alert';
+import axios from 'axios';
 
 const Wrapper = styled.div`
   display: flex;
@@ -119,33 +120,53 @@ export const Contacts = () => {
     reset.reset();
   };
 
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const GetData = async () => {
+      try {
+        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const res = await axios({ url: `./locales/${lang}/Contacts.json` });
+        setData(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    GetData();
+  }, []);
+
   return (
     <BasicTemplate index={4} id="contacts">
       <Wrapper>
         {done && <Alert />}
-        <StyledHeading bold>Contacts</StyledHeading>
-        <StyledParagraph bold>Let's Talk!</StyledParagraph>
-        <Footer>
-          <form onSubmit={sendEmail}>
-            <Input name="email" placeholder="Your Email" />
-            <TextArea name="message" placeholder="Please describe your problem" />
-            <Submit type="submit" value="SEND EMAIL" />
-          </form>
-          <Info>
-            <Paragraph bold other>
-              PHONE
-            </Paragraph>
-            <Paragraph small other>
-              887 692 891
-            </Paragraph>
-            <Paragraph bold other>
-              EMAIL
-            </Paragraph>
-            <Paragraph small other>
-              albert.dabal22@gmail.com
-            </Paragraph>
-          </Info>
-        </Footer>
+        {data && (
+          <>
+            <StyledHeading bold>{data.title}</StyledHeading>
+            <StyledParagraph bold>{data.subtitle}</StyledParagraph>
+            <Footer>
+              <form onSubmit={sendEmail}>
+                <Input name="email" placeholder={data.emailPlaceholder} />
+                <TextArea name="message" placeholder={data.textPlaceholder} />
+                <Submit type="submit" value={data.buttonSend} />
+              </form>
+              <Info>
+                <Paragraph bold other>
+                  {data.phone}
+                </Paragraph>
+                <Paragraph small other>
+                  {data.phoneValue}
+                </Paragraph>
+                <Paragraph bold other>
+                  EMAIL
+                </Paragraph>
+                <Paragraph small other>
+                  {data.email}
+                </Paragraph>
+              </Info>
+            </Footer>
+          </>
+        )}
       </Wrapper>
     </BasicTemplate>
   );

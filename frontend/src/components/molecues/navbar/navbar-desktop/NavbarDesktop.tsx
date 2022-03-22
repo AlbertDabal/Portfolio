@@ -1,8 +1,11 @@
 import { NavbarData } from 'data/NavabarData';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import logo from 'images/logo.png';
+import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import { Button } from 'components/atoms/button/Button';
+import axios from 'axios';
 
 interface Props {
   colorChange?: boolean;
@@ -53,19 +56,35 @@ const Logo = styled.img`
 `;
 
 export const NavbarDesktop = ({ colorChange }: Props) => {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const GetData = async () => {
+      try {
+        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const res = await axios({ url: `./locales/${lang}/Navbar.json` });
+        setData(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    GetData();
+  }, []);
+
   return (
     <WrapperMain colorChange={colorChange}>
       <Wrapper>
-        {console.log(colorChange)}
         <Link to="main" spy={true} smooth={true} offset={-70} duration={500}>
-          <Logo src={logo} />
+          <Logo src={process.env.PUBLIC_URL + '/images/logo.png'} />
         </Link>
         <Menu>
-          {NavbarData.map((item) => (
-            <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>
-              {item.name.toUpperCase()}
-            </StyledLink>
-          ))}
+          {data &&
+            data.map((item: { link: string; name: string }) => (
+              <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>
+                {item.name.toUpperCase()}
+              </StyledLink>
+            ))}
         </Menu>
       </Wrapper>
     </WrapperMain>

@@ -1,11 +1,11 @@
 import { Button } from 'components/atoms/button/Button';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
 import profile from 'images/profile.jpg';
 import { Heading } from 'components/atoms/heading/Heading';
-import pdf from 'data/CV.pdf';
+import axios from 'axios';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -77,26 +77,40 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 export const AboutMe = () => {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    const GetData = async () => {
+      try {
+        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const res = await axios({ url: `./locales/${lang}/AboutMe.json` });
+        setData(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    GetData();
+  }, []);
   return (
     <BasicTemplate index={1} id="about-me">
       <Wrapper>
-        <Description>
-          <Heading bold>About me</Heading>
-          <StyledParagraph small other>
-            As a front-end developer, you know how to make a seamless web app that helps users accomplish what they need
-            to do. You have a strong combination of technical ability and creativity. It can be really difficult to
-            channel this wide-ranging skillset properly on a resume to impress employers.
-          </StyledParagraph>
-          <Bottom>
-            <StyledButton target="_blank" href="https://www.linkedin.com/in/albert-d%C4%85bal-552907148/">
-              MY LINKEDIN
-            </StyledButton>
-            <StyledButton other href={pdf} target="_blank">
-              SHOW CV
-            </StyledButton>
-          </Bottom>
-        </Description>
-
+        {data && (
+          <Description>
+            <Heading bold>{data.title}</Heading>
+            <StyledParagraph small other>
+              {data.description}
+            </StyledParagraph>
+            <Bottom>
+              <StyledButton target="_blank" href={data.linkedinLink}>
+                {data.linkedinButton}
+              </StyledButton>
+              <StyledButton other href={process.env.PUBLIC_URL + `/data/${data.cvLink}`} target="_blank">
+                {data.cvButton}
+              </StyledButton>
+            </Bottom>
+          </Description>
+        )}
         <Image src={profile} alt={profile} />
       </Wrapper>
     </BasicTemplate>

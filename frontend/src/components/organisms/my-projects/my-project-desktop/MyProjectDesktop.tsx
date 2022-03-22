@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 `;
 
 const Slider = styled.div<Props>`
-  margin-top: 10vh;
+  margin-top: 15vh;
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -59,7 +59,6 @@ const Top = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3vh;
 `;
 
 const Line = styled.hr`
@@ -71,8 +70,11 @@ const StyledHeading = styled(Heading)`
   font-size: ${({ theme }) => theme.fontSize.l};
 `;
 
-const StyledButton = styled(Button)`
+const Bottom = styled.div`
   margin-top: 20%;
+  width: 40%;
+  justify-content: space-between;
+  display: flex;
 `;
 
 const LeftButton = styled(Button)`
@@ -126,7 +128,7 @@ const StyledBiChevronRight = styled(BiChevronRight)`
 
 export const MyProjectDesktop = ({ width }: Props) => {
   const [element, setElement] = useState(1);
-  console.log(width);
+
   const NextElement = () => {
     if (ProjectsData.length > element) {
       document.getElementById('right-button')!.style.display = `flex`;
@@ -200,10 +202,14 @@ export const MyProjectDesktop = ({ width }: Props) => {
               <Paragraph small other>
                 {items.description}
               </Paragraph>
-
-              <StyledButton target="_blank" href={items.link}>
-                READ MORE
-              </StyledButton>
+              <Bottom>
+                <Button target="_blank" href={items.link}>
+                  VISIT SITE
+                </Button>
+                <Button other target="_blank" href={items.link}>
+                  GITHUB
+                </Button>
+              </Bottom>
             </Info>
           </Image>
         ))}
