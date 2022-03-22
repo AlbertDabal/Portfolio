@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
 
   padding-top: 10vh;
   @media (max-width: 1000px) {
@@ -26,10 +27,7 @@ const Info = styled.div`
   @media (max-width: 1000px) {
     padding-left: 0;
     height: 30vh;
-    padding-top: 50px;
   }
-  padding-left: 10%;
-  width: 100%;
   height: 30vh;
   padding-top: 10px;
   display: flex;
@@ -50,7 +48,6 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
   margin-top: 4vh;
 
   @media (max-width: 1000px) {
@@ -141,7 +138,7 @@ export const Contacts = () => {
       <Wrapper>
         {done && <Alert />}
         {data && (
-          <>
+          <div style={{ width: '100%' }}>
             <StyledHeading bold>{data.title}</StyledHeading>
             <StyledParagraph bold>{data.subtitle}</StyledParagraph>
             <Footer>
@@ -165,7 +162,7 @@ export const Contacts = () => {
                 </Paragraph>
               </Info>
             </Footer>
-          </>
+          </div>
         )}
       </Wrapper>
     </BasicTemplate>

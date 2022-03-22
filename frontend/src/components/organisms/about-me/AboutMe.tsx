@@ -26,11 +26,13 @@ const Wrapper = styled.div`
 const Image = styled.img`
   object-fit: contain;
   width: 100%;
-  box-shadow: 30px 30px 0px -10px #003f9d;
+  box-shadow: none;
+
   margin-bottom: 50px;
   margin-right: 50px;
   @media (min-width: 499px) {
     height: 70vh;
+    box-shadow: 30px 30px 0px -10px #003f9d;
     width: auto;
   }
 `;
@@ -68,7 +70,7 @@ const Bottom = styled.div`
 `;
 
 const StyledParagraph = styled(Paragraph)`
-  line-height: 4rem;
+  line-height: 3rem;
   padding-right: 0px;
 
   @media (min-width: 700px) {
