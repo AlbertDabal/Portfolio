@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BiMenu, BiPlus } from 'react-icons/bi';
-import { NavbarData } from 'data/NavabarData';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Heading } from 'components/atoms/heading/Heading';
 import axios from 'axios';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
-import { ProjectsData } from 'data/ProjectsData';
 import { MyProjectsItem } from 'components/molecues/navbar/projects-item/MyProjectsItem';
 import { Heading } from 'components/atoms/heading/Heading';
 

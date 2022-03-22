@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Heading } from 'components/atoms/heading/Heading';
-import { BasicTemplate } from 'templates/BasicTemplate';
 import { Button } from 'components/atoms/button/Button';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 
@@ -18,11 +17,7 @@ const Image = styled.div<Props>`
   transition: 0.2s all ease;
   /* filter: grayscale(100%); */
   opacity: 0.1;
-  &:nth-child(1) {
-  }
-  &:nth-last-child(1) {
-  }
-  background-image: url('https://i.wpimg.pl/730x0/m.autokult.pl/350z-2cf75dd8822a6157ce2153781c4.jpg');
+
   background-size: cover;
   background-position: center;
   width: 65vw;
@@ -38,7 +33,7 @@ const Image = styled.div<Props>`
 
 const Wrapper = styled.div`
   height: 88vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 80%;
   max-width: 1150px;
   display: flex;
@@ -63,19 +58,12 @@ const Top = styled.div`
 `;
 
 const Line = styled.hr`
-  width: 40%;
+  width: 30%;
   height: 1px;
 `;
 
 const StyledHeading = styled(Heading)`
   font-size: ${({ theme }) => theme.fontSize.l};
-`;
-
-const Bottom = styled.div`
-  margin-top: 20%;
-  width: 40%;
-  justify-content: space-between;
-  display: flex;
 `;
 
 const LeftButton = styled(Button)`
@@ -114,9 +102,13 @@ const Info = styled.div`
 
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
   transition: 0.6s all ease;
+
+  > * {
+    margin-bottom: 40px;
+  }
 `;
 
 const StyledBiChevronLeft = styled(BiChevronLeft)`
@@ -127,18 +119,27 @@ const StyledBiChevronRight = styled(BiChevronRight)`
   font-size: 60pt;
 `;
 
+const Bottom = styled.section`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const StyledButton = styled(Button)`
+  margin-right: 30px;
+`;
+
 export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
   const [element, setElement] = useState(1);
 
   const NextElement = () => {
-    if (ProjectsData.length > element) {
+    if (element < ProjectsData.length) {
       document.getElementById('right-button')!.style.display = `flex`;
-      console.log(element);
+      document.getElementById('left-button')!.style.display = `flex`;
       document.querySelector<HTMLElement>(`#slider div:nth-child(${element})`)!.style.opacity = '0.1';
-
+      console.log(element, ProjectsData.length);
       document.querySelector<HTMLElement>(`#slider div:nth-child(${element + 1})`)!.style.opacity = '1';
       setElement(element + 1);
-      document.getElementById('left-button')!.style.display = `flex`;
+
       document.getElementById(
         'slider'
       )!.style.transform = `translateX(calc((${element} * -65vw) - (2vw * ${element})))`;
@@ -186,7 +187,6 @@ export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
       <Top>
         <Heading bold>{title}</Heading>
         <Line />
-        {console.log(ProjectsData)}
         <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
       </Top>
 
@@ -212,12 +212,12 @@ export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
                   {items.description}
                 </Paragraph>
                 <Bottom>
-                  <Button target="_blank" href={items.link}>
+                  <StyledButton target="_blank" href={items.link}>
                     VISIT SITE
-                  </Button>
-                  <Button other target="_blank" href={items.link}>
+                  </StyledButton>
+                  <StyledButton other target="_blank" href={items.link}>
                     GITHUB
-                  </Button>
+                  </StyledButton>
                 </Bottom>
               </Info>
             </Image>

@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import baner from 'images/baner.png';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Link } from 'react-scroll';
-import { MainData } from 'data/MainData';
 import axios from 'axios';
 
 const Wrapper = styled.div`
