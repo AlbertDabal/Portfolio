@@ -27,6 +27,7 @@ const Info = styled.div`
   @media (max-width: 1000px) {
     padding-left: 0;
     height: 30vh;
+    padding-top: 40px;
   }
   height: 30vh;
   padding-top: 10px;
@@ -140,7 +141,6 @@ export const Contacts = () => {
         {data && (
           <div style={{ width: '100%' }}>
             <StyledHeading bold>{data.title}</StyledHeading>
-            <StyledParagraph bold>{data.subtitle}</StyledParagraph>
             <Footer>
               <form onSubmit={sendEmail}>
                 <Input name="email" placeholder={data.emailPlaceholder} />

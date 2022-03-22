@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { ProjectsData } from 'data/ProjectsData';
 import styled from 'styled-components';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Heading } from 'components/atoms/heading/Heading';
@@ -11,6 +10,8 @@ interface Props {
   length?: number;
   element?: number;
   width?: number;
+  ProjectsData?: any;
+  title?: string;
 }
 
 const Image = styled.div<Props>`
@@ -126,7 +127,7 @@ const StyledBiChevronRight = styled(BiChevronRight)`
   font-size: 60pt;
 `;
 
-export const MyProjectDesktop = ({ width }: Props) => {
+export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
   const [element, setElement] = useState(1);
 
   const NextElement = () => {
@@ -183,36 +184,45 @@ export const MyProjectDesktop = ({ width }: Props) => {
   return (
     <Wrapper id="my-project">
       <Top>
-        <Heading bold>My projects</Heading>
+        <Heading bold>{title}</Heading>
         <Line />
+        {console.log(ProjectsData)}
         <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
       </Top>
 
       <Slider id="slider" length={ProjectsData.length}>
-        {ProjectsData.map((items) => (
-          <Image
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL + '/images/projects' + items.images})`
-            }}
-            element={element}
-          >
-            <Info>
-              <Paragraph bold>{items.name}</Paragraph>
-              <Paragraph small>{`${items.technology},`}</Paragraph>
-              <Paragraph small other>
-                {items.description}
-              </Paragraph>
-              <Bottom>
-                <Button target="_blank" href={items.link}>
-                  VISIT SITE
-                </Button>
-                <Button other target="_blank" href={items.link}>
-                  GITHUB
-                </Button>
-              </Bottom>
-            </Info>
-          </Image>
-        ))}
+        {ProjectsData.map(
+          (items: {
+            images: string;
+            name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined;
+            technology: any;
+            description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined;
+            link: string | undefined;
+          }) => (
+            <Image
+              style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL + '/images/projects' + items.images})`
+              }}
+              element={element}
+            >
+              <Info>
+                <Paragraph bold>{items.name}</Paragraph>
+                <Paragraph small>{`${items.technology},`}</Paragraph>
+                <Paragraph small other>
+                  {items.description}
+                </Paragraph>
+                <Bottom>
+                  <Button target="_blank" href={items.link}>
+                    VISIT SITE
+                  </Button>
+                  <Button other target="_blank" href={items.link}>
+                    GITHUB
+                  </Button>
+                </Bottom>
+              </Info>
+            </Image>
+          )
+        )}
       </Slider>
 
       <LeftButton id="left-button" onClick={() => PrevProject()}>

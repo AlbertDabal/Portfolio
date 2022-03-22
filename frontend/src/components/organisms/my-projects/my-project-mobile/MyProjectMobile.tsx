@@ -5,6 +5,14 @@ import { ProjectsData } from 'data/ProjectsData';
 import { MyProjectsItem } from 'components/molecues/navbar/projects-item/MyProjectsItem';
 import { Heading } from 'components/atoms/heading/Heading';
 
+interface Props {
+  length?: number;
+  element?: number;
+  width?: number;
+  ProjectsData?: any;
+  title?: string;
+}
+
 const Wrapper = styled.div`
   height: 90vh;
   width: 80%;
@@ -42,7 +50,7 @@ const Bottom = styled.div`
   }
 `;
 
-export const MyProjectMobile = () => {
+export const MyProjectMobile = ({ ProjectsData, title }: Props) => {
   const [selectItem, setSelectItem] = useState(0);
 
   const NextProject = () => {
@@ -62,7 +70,7 @@ export const MyProjectMobile = () => {
   return (
     <Wrapper id="my-project">
       <Top>
-        <Heading bold>My projects</Heading>
+        <Heading bold>{title}</Heading>
         <FiArrowRight onClick={() => NextProject()} />
       </Top>
       <MyProjectsItem index={selectItem + 1} length={ProjectsData.length} dataItem={ProjectsData[selectItem]} />
