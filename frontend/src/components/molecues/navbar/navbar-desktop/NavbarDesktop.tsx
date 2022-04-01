@@ -18,6 +18,9 @@ const WrapperMain = styled.div<Props>`
   transition: 0.8s all ease;
   left: 0;
   background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')};
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled(Link)`

@@ -18,15 +18,14 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    const updateWidthAndHeight = () => {
-      setWidth(window.innerWidth);
-    };
-
     window.addEventListener('scroll', changeNavbarColor);
-    window.addEventListener('resize', updateWidthAndHeight);
-    return () => window.removeEventListener('resize', updateWidthAndHeight);
+
+    return () => window.removeEventListener('scroll', changeNavbarColor);
   }, []);
   return (
-    <>{width >= 1000 ? <NavbarDesktop colorChange={colorChange} /> : <NavbarMobile colorChange={colorChange} />}</>
+    <>
+      <NavbarDesktop colorChange={colorChange} />
+      <NavbarMobile colorChange={colorChange} />
+    </>
   );
 };

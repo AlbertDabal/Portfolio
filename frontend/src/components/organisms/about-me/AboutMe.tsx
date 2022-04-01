@@ -32,6 +32,7 @@ const Image = styled.img`
   margin-right: 50px;
   @media (min-width: 499px) {
     height: 70vh;
+    border-radius: 0px;
     box-shadow: 30px 30px 0px -10px #003f9d;
     width: auto;
   }
