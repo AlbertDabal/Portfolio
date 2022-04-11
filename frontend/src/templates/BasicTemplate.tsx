@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   min-height: 100vh;
   width: 80%;
   max-width: 1150px;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const Main = styled.div``;

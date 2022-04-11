@@ -22,6 +22,7 @@ interface Props {
   dataItem: Project;
   index?: number;
   length?: number;
+  buttonName?: string;
 }
 
 interface Project {
@@ -29,22 +30,30 @@ interface Project {
   technology: string[];
   description: string;
   images: string;
-  link: string;
+  website: string;
+  github: string;
 }
 
-export const MyProjectsItem = ({ dataItem, index, length }: Props) => {
+export const MyProjectsItem = ({ dataItem, index, length, buttonName }: Props) => {
   return (
     <Wrapper>
-      <Paragraph small bold>
-        {`0${index}/0${length}`}
-      </Paragraph>
-
       <Paragraph bold>{dataItem.name}</Paragraph>
       <Paragraph small>{`${dataItem.technology},`}</Paragraph>
       <Paragraph small other>
         {dataItem.description}
       </Paragraph>
-      <Button>read more</Button>
+      {dataItem.website && (
+        <Button target="_blank" href={dataItem.website}>
+          {buttonName}
+        </Button>
+      )}
+
+      {dataItem.github && (
+        <Button target="_blank" href={dataItem.github}>
+          GITHUB
+        </Button>
+      )}
+
       <Image src={process.env.PUBLIC_URL + '/images/projects' + dataItem.images} />
     </Wrapper>
   );

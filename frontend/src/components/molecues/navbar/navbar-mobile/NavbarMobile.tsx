@@ -31,7 +31,7 @@ const Wrapper = styled.nav<Props>`
     font-size: 70px;
 
     padding-bottom: 2px;
-    margin: 0 20px;
+    margin: 0 8px;
     cursor: pointer;
     z-index: 999;
   }
@@ -108,7 +108,7 @@ export const NavbarMobile = ({ colorChange }: Props) => {
         <StyledBiPlus onClick={() => setIsOpen(!isOpen)} />
       )}
 
-      <MainWrapper style={isOpen ? { display: 'flex' } : { display: 'flex', opacity: '0' }}>
+      <MainWrapper style={isOpen ? { display: 'flex' } : { display: 'none' }}>
         <Menu>
           {data &&
             data.map((item: { link: string; name: string }) => (

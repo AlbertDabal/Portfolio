@@ -35,8 +35,10 @@ export const MyProjects = () => {
   return (
     <>
       {window.innerWidth >= 1000
-        ? data && <MyProjectDesktop ProjectsData={data.projects} title={data.title} width={width} />
-        : data && <MyProjectMobile ProjectsData={data.projects} title={data.title} />}
+        ? data && (
+            <MyProjectDesktop ProjectsData={data.projects} title={data.title} buttonName={data.button} width={width} />
+          )
+        : data && <MyProjectMobile ProjectsData={data.projects} title={data.title} buttonName={data.button} />}
     </>
   );
 };

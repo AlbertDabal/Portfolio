@@ -1,81 +1,40 @@
 {
     "title": "Moje projekty",
+    "button": "zobacz stronę",
     "projects": [
         {
-            "name": "Mines.pl",
+            "name": "Fotostudyjne",
             "technology": [
-                "Express",
                 "React",
-                "FB API"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Aplikacja webowa dla mines.pl która pobiera posty z facebooka o określonym tagu, oraz pokazuje aktualne statusy serwerów",
+            "description": "Aplikacja webowa dla fotostudyjne.pl która pełni role prezentacji usług firmy.",
             "images": "/project-1.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "website": "http://fotostudyjne.pl",
+            "github": "http://fotostudyjne.pl"
         },
         {
-            "name": "Fotostudyjne.pl",
+            "name": "Portfolio",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
+            "description": "Aplikacja webowa która pełni role portfolio",
             "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "website": "http://albertdabal.pl"
         },
         {
-            "name": "Edziekanat",
+            "name": "Portfolio",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Projekt stworzony na studia",
+            "description": "Aplikacja webowa która pełni role portfolio",
             "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
-        },
-        {
-            "name": "MojZwierzak",
-            "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
-                "React",
-                "React Native"
-            ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-1.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
-        },
-        {
-            "name": "ToDoList",
-            "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
-                "React",
-                "React Native"
-            ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
-        },
-        {
-            "name": "JDobrowsky",
-            "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
-                "React",
-                "React Native"
-            ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "website": "http://albertdabal.pl"
         }
     ]
 }

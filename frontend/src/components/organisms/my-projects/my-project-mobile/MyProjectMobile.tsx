@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FiArrowRight, FiArrowLeft } from 'react-icons/fi';
-import { MyProjectsItem } from 'components/molecues/navbar/projects-item/MyProjectsItem';
+import { MyProjectsItem } from 'components/molecues/projects-item/MyProjectsItem';
 import { Heading } from 'components/atoms/heading/Heading';
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
   width?: number;
   ProjectsData?: any;
   title?: string;
+  buttonName?: string;
 }
 
 const Wrapper = styled.div`
@@ -20,6 +21,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  text-align: justify;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const Top = styled.div`
@@ -40,6 +46,7 @@ const Top = styled.div`
 
 const Bottom = styled.div`
   margin-top: 20px;
+  z-index: 998;
   > svg {
     cursor: pointer;
     color: #585858;
@@ -49,7 +56,15 @@ const Bottom = styled.div`
   }
 `;
 
-export const MyProjectMobile = ({ ProjectsData, title }: Props) => {
+const StyledNextButton = styled(FiArrowRight)`
+  z-index: 998;
+`;
+
+const StyledPrevButton = styled(FiArrowLeft)`
+  z-index: 998;
+`;
+
+export const MyProjectMobile = ({ ProjectsData, title, buttonName }: Props) => {
   const [selectItem, setSelectItem] = useState(0);
 
   const NextProject = () => {
@@ -70,11 +85,16 @@ export const MyProjectMobile = ({ ProjectsData, title }: Props) => {
     <Wrapper id="my-project">
       <Top>
         <Heading bold>{title}</Heading>
-        <FiArrowRight onClick={() => NextProject()} />
+        <StyledNextButton onClick={() => NextProject()} />
       </Top>
-      <MyProjectsItem index={selectItem + 1} length={ProjectsData.length} dataItem={ProjectsData[selectItem]} />
+      <MyProjectsItem
+        buttonName={buttonName}
+        index={selectItem + 1}
+        length={ProjectsData.length}
+        dataItem={ProjectsData[selectItem]}
+      />
       <Bottom>
-        <FiArrowLeft onClick={() => PrevProject()} />
+        <StyledPrevButton onClick={() => PrevProject()} />
       </Bottom>
     </Wrapper>
   );

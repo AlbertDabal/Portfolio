@@ -11,6 +11,7 @@ interface Props {
   width?: number;
   ProjectsData?: any;
   title?: string;
+  buttonName?: string;
 }
 
 const Image = styled.div<Props>`
@@ -18,7 +19,6 @@ const Image = styled.div<Props>`
   /* filter: grayscale(100%); */
   opacity: 0.1;
 
-  background-size: cover;
   background-position: center;
   width: 65vw;
   height: 70vh;
@@ -128,7 +128,7 @@ const StyledButton = styled(Button)`
   margin-right: 30px;
 `;
 
-export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
+export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName }: Props) => {
   const [element, setElement] = useState(1);
 
   const NextElement = () => {
@@ -197,7 +197,8 @@ export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
             name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined;
             technology: any;
             description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined;
-            link: string | undefined;
+            website: string | undefined;
+            github: string | undefined;
           }) => (
             <Image
               style={{
@@ -212,12 +213,16 @@ export const MyProjectDesktop = ({ width, ProjectsData, title }: Props) => {
                   {items.description}
                 </Paragraph>
                 <Bottom>
-                  <StyledButton target="_blank" href={items.link}>
-                    VISIT SITE
-                  </StyledButton>
-                  <StyledButton other target="_blank" href={items.link}>
-                    GITHUB
-                  </StyledButton>
+                  {items.website && (
+                    <StyledButton target="_blank" href={items.website}>
+                      {buttonName}
+                    </StyledButton>
+                  )}
+                  {items.github && (
+                    <StyledButton other target="_blank" href={items.github}>
+                      GITHUB
+                    </StyledButton>
+                  )}
                 </Bottom>
               </Info>
             </Image>
