@@ -27,18 +27,14 @@ export const MyProjects = () => {
     GetData();
   }, []);
 
-  useEffect(() => {
-    window.addEventListener('resize', updateWidthAndHeight);
-
-    return () => window.removeEventListener('resize', updateWidthAndHeight);
-  });
   return (
     <>
-      {window.innerWidth >= 1000
-        ? data && (
-            <MyProjectDesktop ProjectsData={data.projects} title={data.title} buttonName={data.button} width={width} />
-          )
-        : data && <MyProjectMobile ProjectsData={data.projects} title={data.title} buttonName={data.button} />}
+      {data && (
+        <>
+          <MyProjectDesktop ProjectsData={data.projects} title={data.title} buttonName={data.button} width={width} />
+          <MyProjectMobile ProjectsData={data.projects} title={data.title} buttonName={data.button} />
+        </>
+      )}
     </>
   );
 };

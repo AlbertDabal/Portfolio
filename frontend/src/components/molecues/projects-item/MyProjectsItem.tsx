@@ -7,15 +7,50 @@ import styled from 'styled-components';
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
-  height: 35vh;
+  height: 40vh;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 80vh;
   align-items: flex-start;
+  width: 95%;
+  background-color: #1d1d1d;
+  padding: 20px;
+`;
+
+const Bottom = styled.div`
+  width: 85%;
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 20px;
+`;
+
+const StyledButton = styled(Button)`
+  text-align: center;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:nth-child(1) {
+    margin-right: 5px;
+  }
+  &:nth-child(2) {
+    margin-left: 5px;
+  }
+`;
+
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40vh;
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  margin: 10px 0px;
 `;
 
 interface Props {
@@ -37,22 +72,26 @@ interface Project {
 export const MyProjectsItem = ({ dataItem, index, length, buttonName }: Props) => {
   return (
     <Wrapper>
-      <Paragraph bold>{dataItem.name}</Paragraph>
-      <Paragraph small>{`${dataItem.technology},`}</Paragraph>
-      <Paragraph small other>
-        {dataItem.description}
-      </Paragraph>
-      {dataItem.website && (
-        <Button target="_blank" href={dataItem.website}>
-          {buttonName}
-        </Button>
-      )}
+      <Top>
+        <StyledParagraph>{dataItem.name}</StyledParagraph>
+        <StyledParagraph small>{`${dataItem.technology},`}</StyledParagraph>
+        <StyledParagraph small other>
+          {dataItem.description}
+        </StyledParagraph>
+        <Bottom>
+          {dataItem.website && (
+            <StyledButton target="_blank" href={dataItem.website}>
+              {buttonName}
+            </StyledButton>
+          )}
 
-      {dataItem.github && (
-        <Button target="_blank" href={dataItem.github}>
-          GITHUB
-        </Button>
-      )}
+          {dataItem.github && (
+            <StyledButton target="_blank" href={dataItem.github}>
+              GITHUB
+            </StyledButton>
+          )}
+        </Bottom>
+      </Top>
 
       <Image src={process.env.PUBLIC_URL + '/images/projects' + dataItem.images} />
     </Wrapper>

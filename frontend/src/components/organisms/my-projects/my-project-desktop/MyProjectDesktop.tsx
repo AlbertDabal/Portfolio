@@ -20,7 +20,8 @@ const Image = styled.div<Props>`
   opacity: 0.1;
 
   background-position: center;
-  width: 65vw;
+  background-size: cover;
+  width: 60vw;
   height: 70vh;
   margin-right: 2vw;
 
@@ -39,6 +40,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const Slider = styled.div<Props>`
@@ -89,7 +93,7 @@ const RightButton = styled(Button)`
   margin-top: 10vh;
   right: auto;
   width: 400px;
-  margin-left: 65vw;
+  margin-left: 60vw;
   align-items: center;
 `;
 
@@ -135,14 +139,14 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName }: Pro
     if (element < ProjectsData.length) {
       document.getElementById('right-button')!.style.display = `flex`;
       document.getElementById('left-button')!.style.display = `flex`;
-      document.querySelector<HTMLElement>(`#slider div:nth-child(${element})`)!.style.opacity = '0.1';
+      document.querySelector<HTMLElement>(`#slider div:nth-child(${element})`)!.style.opacity = '0.3';
       console.log(element, ProjectsData.length);
       document.querySelector<HTMLElement>(`#slider div:nth-child(${element + 1})`)!.style.opacity = '1';
       setElement(element + 1);
 
       document.getElementById(
         'slider'
-      )!.style.transform = `translateX(calc((${element} * -65vw) - (2vw * ${element})))`;
+      )!.style.transform = `translateX(calc((${element} * -60vw) - (2vw * ${element})))`;
       if (ProjectsData.length === element + 1) {
         document.getElementById('right-button')!.style.display = `none`;
       }
@@ -167,7 +171,7 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName }: Pro
         document.getElementById('left-button')!.style.display = `flex`;
         document.getElementById('right-button')!.style.display = `flex`;
         console.log(element);
-        document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -65vw) - (2vw * ${
+        document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -60vw) - (2vw * ${
           test - 1
         })`;
       }

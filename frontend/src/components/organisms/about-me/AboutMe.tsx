@@ -8,7 +8,8 @@ import { Heading } from 'components/atoms/heading/Heading';
 import axios from 'axios';
 
 const Wrapper = styled.div`
-  min-height: 100vh;
+  min-height: 60vh;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,6 +21,8 @@ const Wrapper = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    border: 3px solid #003f9d;
+    padding: 30px;
   }
 `;
 
@@ -33,7 +36,7 @@ const Image = styled.img`
   @media (min-width: 499px) {
     height: 70vh;
     border-radius: 0px;
-    box-shadow: 30px 30px 0px -10px #003f9d;
+    /* box-shadow: 30px 30px 0px -10px #003f9d; */
     width: auto;
   }
 `;

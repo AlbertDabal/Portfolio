@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   background: url(${process.env.PUBLIC_URL}/images/baner.png) no-repeat;
   background-size: cover;
   background-blend-mode: normal, difference;
+  margin-bottom: 5vh;
 `;
 
 const Title = styled(Heading)`

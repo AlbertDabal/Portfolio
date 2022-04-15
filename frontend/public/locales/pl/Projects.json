@@ -1,6 +1,6 @@
 {
     "title": "Moje projekty",
-    "button": "zobacz stronę",
+    "button": "strona",
     "projects": [
         {
             "name": "Fotostudyjne",
@@ -11,8 +11,7 @@
             ],
             "description": "Aplikacja webowa dla fotostudyjne.pl która pełni role prezentacji usług firmy.",
             "images": "/project-1.png",
-            "website": "http://fotostudyjne.pl",
-            "github": "http://fotostudyjne.pl"
+            "website": "http://fotostudyjne.pl"
         },
         {
             "name": "Portfolio",
@@ -23,10 +22,46 @@
             ],
             "description": "Aplikacja webowa która pełni role portfolio",
             "images": "/project-2.png",
+            "website": "https://albertdabal.pl",
+            "github": "https://github.com/AlbertDabal/Portfolio"
+        },
+        {
+            "name": "Mines",
+            "technology": [
+                "React",
+                "Express",
+                "Styled Components"
+            ],
+            "description": "Aplikacja webowa dla mines.pl która pobiera posty z facebooka o określonym tagu, oraz pokazuje aktualne statusy serwerów.",
+            "images": "/project-3.png",
+            "website": "https://mines.albertdabal.pl"
+        },
+        {
+            "name": "Edziekanat",
+            "technology": [
+                "React",
+                "TypeScript",
+                "Styled Components"
+            ],
+            "description": "Aplikacja webowa wirtualny dziekanat",
+            "images": "/project-4.png",
+            "github": "https://github.com/AlbertDabal/E-dziekanat"
+        },
+        {
+            "name": "TodoList",
+            "technology": [
+                "React",
+                "TypeScript",
+                "Styled Components",
+                "Mongodb",
+                "Express"
+            ],
+            "description": "Aplikacja webowa która pełni role portfolio",
+            "images": "/project-2.png",
             "website": "http://albertdabal.pl"
         },
         {
-            "name": "Portfolio",
+            "name": "Mój zwierzak",
             "technology": [
                 "React",
                 "TypeScript",
