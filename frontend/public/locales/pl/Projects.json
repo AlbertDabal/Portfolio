@@ -1,6 +1,7 @@
 {
     "title": "Moje projekty",
     "button": "strona",
+    "info": "Najedź aby zobaczyć więcej informacji",
     "projects": [
         {
             "name": "Fotostudyjne",
@@ -43,7 +44,7 @@
                 "TypeScript",
                 "Styled Components"
             ],
-            "description": "Aplikacja webowa wirtualny dziekanat",
+            "description": "Aplikacja webowa wirtualnego dziekanatu która została wykonana w grupie. Moim zadaniem było stworzenie frontendu.",
             "images": "/project-4.png",
             "github": "https://github.com/AlbertDabal/E-dziekanat"
         },
@@ -56,9 +57,9 @@
                 "Mongodb",
                 "Express"
             ],
-            "description": "Aplikacja webowa która pełni role portfolio",
-            "images": "/project-2.png",
-            "website": "http://albertdabal.pl"
+            "description": "Aplikacja webowa która pozwala tworzyć zadania które chcemy wykonać.",
+            "images": "/project-5.png",
+            "website": "https://github.com/AlbertDabal/toDoList"
         },
         {
             "name": "Mój zwierzak",
@@ -67,9 +68,9 @@
                 "TypeScript",
                 "Styled Components"
             ],
-            "description": "Aplikacja webowa która pełni role portfolio",
-            "images": "/project-2.png",
-            "website": "http://albertdabal.pl"
+            "description": "Aplikacja webowa która monitoruje czy na kamerze został zauważony zwierzak. Została ona wykonana w grupie moja część to frontend.",
+            "images": "/project-6.png",
+            "website": "https://github.com/AlbertDabal/moj_zwierzak"
         }
     ]
 }

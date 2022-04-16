@@ -40,14 +40,7 @@ export const MyProjectMobile = ({ ProjectsData, title, buttonName }: Props) => {
   return (
     <Wrapper id="my-project">
       <StyledHeading bold>{title}</StyledHeading>
-      <Swiper
-        pagination={{
-          clickable: true
-        }}
-        slidesPerView={1.2}
-        scrollbar={{ draggable: true }}
-        className="mySwiper"
-      >
+      <Swiper slidesPerView={1.2}>
         {ProjectsData.map((item: any) => (
           <SwiperSlide className="slide">
             <MyProjectsItem

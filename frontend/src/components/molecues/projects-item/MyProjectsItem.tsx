@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 80vh;
   align-items: flex-start;
   width: 95%;
   background-color: #1d1d1d;
@@ -22,10 +21,10 @@ const Wrapper = styled.div`
 `;
 
 const Bottom = styled.div`
-  width: 85%;
   display: flex;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
 `;
 
 const StyledButton = styled(Button)`
@@ -45,8 +44,8 @@ const StyledButton = styled(Button)`
 const Top = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 40vh;
+  justify-content: flex-start;
+  height: 30vh;
 `;
 
 const StyledParagraph = styled(Paragraph)`
@@ -78,20 +77,20 @@ export const MyProjectsItem = ({ dataItem, index, length, buttonName }: Props) =
         <StyledParagraph small other>
           {dataItem.description}
         </StyledParagraph>
-        <Bottom>
-          {dataItem.website && (
-            <StyledButton target="_blank" href={dataItem.website}>
-              {buttonName}
-            </StyledButton>
-          )}
-
-          {dataItem.github && (
-            <StyledButton target="_blank" href={dataItem.github}>
-              GITHUB
-            </StyledButton>
-          )}
-        </Bottom>
       </Top>
+      <Bottom>
+        {dataItem.website && (
+          <StyledButton target="_blank" href={dataItem.website}>
+            {buttonName}
+          </StyledButton>
+        )}
+
+        {dataItem.github && (
+          <StyledButton target="_blank" href={dataItem.github}>
+            GITHUB
+          </StyledButton>
+        )}
+      </Bottom>
 
       <Image src={process.env.PUBLIC_URL + '/images/projects' + dataItem.images} />
     </Wrapper>

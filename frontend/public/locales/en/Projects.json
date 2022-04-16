@@ -1,82 +1,75 @@
 {
-    "title": "Moje projekty",
+    "title": "My projects",
     "button": "visit site",
     "projects": [
         {
-            "name": "Mines.pl",
+            "name": "Fotostudyjne",
             "technology": [
-                "Express",
                 "React",
-                "FB API"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Aplikacja webowa dla mines.pl która pobiera posty z facebooka o określonym tagu, oraz pokazuje aktualne statusy serwerów",
+            "description": "Web application for fotostudyjne.pl which is a presentation of company services.",
             "images": "/project-1.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "website": "http://fotostudyjne.pl"
         },
         {
-            "name": "Fotostudyjne.pl",
+            "name": "Portfolio",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
+            "description": "Web application which shows portfolio",
             "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "website": "https://albertdabal.pl",
+            "github": "https://github.com/AlbertDabal/Portfolio"
+        },
+        {
+            "name": "Mines",
+            "technology": [
+                "React",
+                "Express",
+                "Styled Components"
+            ],
+            "description": "Web application for mines.pl which download specific tag posts from facebook and it shows current status of servers.",
+            "images": "/project-3.png",
+            "website": "https://mines.albertdabal.pl"
         },
         {
             "name": "Edziekanat",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Projekt stworzony na studia",
-            "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "description": "Web application of virtual dean's office which was created in a group. My work in a project was to create a frontend.",
+            "images": "/project-4.png",
+            "github": "https://github.com/AlbertDabal/E-dziekanat"
         },
         {
-            "name": "MojZwierzak",
+            "name": "TodoList",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components",
+                "Mongodb",
+                "Express"
             ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-1.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "description": "Web application which allows to create tasks which we want to do.",
+            "images": "/project-5.png",
+            "website": "https://github.com/AlbertDabal/toDoList"
         },
         {
-            "name": "ToDoList",
+            "name": "Mój zwierzak",
             "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
                 "React",
-                "React Native"
+                "TypeScript",
+                "Styled Components"
             ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
-        },
-        {
-            "name": "JDobrowsky",
-            "technology": [
-                "HTML 5",
-                "CSS",
-                "JavaScript",
-                "React",
-                "React Native"
-            ],
-            "description": "Strona internetowa dla firmy fotostudyjne.pl",
-            "images": "/project-2.png",
-            "link": "https: //www.figma.com/file/ObsrE5WGcfg4joiPttHxNB/Untitled?node-id=27%3A190"
+            "description": "Web application which monitors if on the camera any dog appears. It was created in a group, my task was a frontend.",
+            "images": "/project-6.png",
+            "website": "https://github.com/AlbertDabal/moj_zwierzak"
         }
     ]
 }

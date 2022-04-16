@@ -12,6 +12,7 @@ interface Props {
   ProjectsData?: any;
   title?: string;
   buttonName?: string;
+  info?: string;
 }
 
 const Image = styled.div<Props>`
@@ -39,14 +40,14 @@ const Wrapper = styled.div`
   max-width: 1150px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   @media (max-width: 1000px) {
     display: none;
   }
 `;
 
 const Slider = styled.div<Props>`
-  margin-top: 15vh;
+  margin-top: 17vh;
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -59,6 +60,7 @@ const Top = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const Line = styled.hr`
@@ -132,7 +134,13 @@ const StyledButton = styled(Button)`
   margin-right: 30px;
 `;
 
-export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName }: Props) => {
+const StyledParagraph = styled(Paragraph)`
+  color: #003f9d;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+`;
+
+export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info }: Props) => {
   const [element, setElement] = useState(1);
 
   const NextElement = () => {
@@ -188,8 +196,9 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName }: Pro
 
   return (
     <Wrapper id="my-project">
+      <Heading bold>{title}</Heading>
       <Top>
-        <Heading bold>{title}</Heading>
+        <StyledParagraph bold>{info}</StyledParagraph>
         <Line />
         <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
       </Top>
