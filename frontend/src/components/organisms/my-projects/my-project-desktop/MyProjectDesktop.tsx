@@ -4,6 +4,11 @@ import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Heading } from 'components/atoms/heading/Heading';
 import { Button } from 'components/atoms/button/Button';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import swiper, { Pagination, Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 interface Props {
   length?: number;
@@ -18,11 +23,11 @@ interface Props {
 const Image = styled.div<Props>`
   transition: 0.2s all ease;
   /* filter: grayscale(100%); */
-  opacity: 0.1;
 
+  height: 100%;
   background-position: center;
   background-size: cover;
-  width: 60vw;
+
   margin-right: 2vw;
 
   &:hover {
@@ -33,25 +38,23 @@ const Image = styled.div<Props>`
 `;
 
 const Wrapper = styled.div`
-  height: 88vh;
+  height: 100vh;
   /* overflow-x: hidden; */
-  width: 80%;
-  max-width: 1150px;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+
+  .slide {
+    width: 80%;
+    max-width: 1150px;
+  }
+
+  /* max-width: 1150px; */
+
   @media (max-width: 1000px) {
     display: none;
   }
-`;
-
-const Slider = styled.div<Props>`
-  margin-top: 17vh;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  transition: 1s all ease;
-  left: auto;
 `;
 
 const Top = styled.div`
@@ -69,33 +72,6 @@ const Line = styled.hr`
 
 const StyledHeading = styled(Heading)`
   font-size: ${({ theme }) => theme.fontSize.l};
-`;
-
-const LeftButton = styled(Button)`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  position: absolute;
-  margin-top: 10vh;
-  height: 70vh;
-  left: auto;
-  width: 400px;
-  margin-left: -400px;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-const RightButton = styled(Button)`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  height: 70vh;
-  position: absolute;
-  margin-top: 10vh;
-  right: auto;
-  width: 400px;
-  margin-left: 60vw;
-  align-items: center;
 `;
 
 const Info = styled.div`
@@ -116,14 +92,6 @@ const Info = styled.div`
   }
 `;
 
-const StyledBiChevronLeft = styled(BiChevronLeft)`
-  font-size: 60pt;
-`;
-
-const StyledBiChevronRight = styled(BiChevronRight)`
-  font-size: 60pt;
-`;
-
 const Bottom = styled.section`
   display: flex;
   justify-content: space-between;
@@ -139,70 +107,107 @@ const StyledParagraph = styled(Paragraph)`
   text-transform: uppercase;
 `;
 
+const Main = styled.div`
+  width: 80%;
+  max-width: 1150px;
+  margin-bottom: 30px;
+`;
+
+const LeftButton = styled(Button)`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  position: absolute;
+  margin-top: 36vh;
+  height: 20vh;
+  left: 850px;
+  width: 150px;
+  margin-left: -745px;
+  align-items: center;
+  justify-content: center;
+  z-index: 997;
+  background-color: red;
+`;
+
+const RightButton = styled(Button)`
+  background-color: transparent;
+  border: none;
+  display: flex;
+  height: 20vh;
+  position: absolute;
+  margin-top: 36vh;
+  right: 0;
+  width: 100px;
+  align-items: center;
+  z-index: 997;
+  color: #003f9d;
+`;
+
+const StyledBiChevronLeft = styled(BiChevronLeft)`
+  font-size: 60pt;
+  position: absolute;
+  margin-top: 38vh;
+  padding: 30px;
+  z-index: 997;
+  box-sizing: content-box;
+  left: auto;
+  margin-left: -605px;
+  color: #003f9d;
+  cursor: pointer;
+`;
+
+const StyledBiChevronRight = styled(BiChevronRight)`
+  font-size: 60pt;
+  position: absolute;
+  margin-top: 38vh;
+  padding: 30px;
+  z-index: 997;
+  box-sizing: content-box;
+  right: auto;
+  margin-left: 605px;
+  color: #003f9d;
+  cursor: pointer;
+`;
+
 export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info }: Props) => {
   const [element, setElement] = useState(1);
 
-  const NextElement = () => {
-    if (element < ProjectsData.length) {
-      document.getElementById('right-button')!.style.display = `flex`;
-      document.getElementById('left-button')!.style.display = `flex`;
-      document.querySelector<HTMLElement>(`#slider div:nth-child(${element})`)!.style.opacity = '0.3';
-      console.log(element, ProjectsData.length);
-      document.querySelector<HTMLElement>(`#slider div:nth-child(${element + 1})`)!.style.opacity = '1';
-      setElement(element + 1);
-
-      document.getElementById(
-        'slider'
-      )!.style.transform = `translateX(calc((${element} * -60vw) - (2vw * ${element})))`;
-      if (ProjectsData.length === element + 1) {
-        document.getElementById('right-button')!.style.display = `none`;
-      }
-    } else {
-    }
+  const Next = () => {
+    if (element < ProjectsData.length) setElement(element + 1);
   };
 
-  const PrevProject = async () => {
-    const test = element - 1;
-    if (element < 2) {
-    } else {
-      if (element < 3) {
-        console.log(element);
-        document.getElementById('slider')!.style.transform = `translateX(0)`;
-        document.getElementById('left-button')!.style.display = `none`;
-        document.querySelector<HTMLElement>(`#slider div:nth-child(${test + 1})`)!.style.opacity = '0.1';
-        setElement(1);
-      } else {
-        await setElement(element - 1);
-        document.querySelector<HTMLElement>(`#slider div:nth-child(${test})`)!.style.opacity = '1';
-        document.querySelector<HTMLElement>(`#slider div:nth-child(${test + 1})`)!.style.opacity = '0.1';
-        document.getElementById('left-button')!.style.display = `flex`;
-        document.getElementById('right-button')!.style.display = `flex`;
-        console.log(element);
-        document.getElementById('slider')!.style.transform = `translateX(calc((${test - 1} * -60vw) - (2vw * ${
-          test - 1
-        })`;
-      }
-    }
+  const Prev = () => {
+    if (element > 1) setElement(element - 1);
   };
-
-  useEffect(() => {
-    if (element === 1) {
-      document.querySelector<HTMLElement>('#slider div:nth-child(1)')!.style.opacity = '1';
-      document.getElementById('left-button')!.style.display = `none`;
-    } else {
-    }
-  });
 
   return (
     <Wrapper id="my-project">
-      <Heading bold>{title}</Heading>
-      <Top>
-        <StyledParagraph bold>{info}</StyledParagraph>
-        <Line />
-        <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
-      </Top>
+      <Main>
+        <Heading bold>{title}</Heading>
+        <Top>
+          <StyledParagraph bold>{info}</StyledParagraph>
+          <Line />
+          <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
+        </Top>
+      </Main>
 
-      <Slider id="slider" length={ProjectsData.length}>
+      <StyledBiChevronLeft className="swiper-button-prev-unique" onClick={() => Prev()} />
+
+      <StyledBiChevronRight className="swiper-button-next-unique" onClick={() => Next()} />
+
+      <Swiper
+        slidesPerView="auto"
+        modules={[Pagination, Navigation]}
+        pagination={{
+          clickable: true
+        }}
+        navigation={{
+          nextEl: '.swiper-button-next-unique',
+          prevEl: '.swiper-button-prev-unique'
+        }}
+        // loop={true}
+        centeredSlides={true}
+      >
         {ProjectsData.map(
           (items: {
             images: string;
@@ -212,42 +217,37 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info 
             website: string | undefined;
             github: string | undefined;
           }) => (
-            <Image
-              style={{
-                backgroundImage: `url(${process.env.PUBLIC_URL + '/images/projects' + items.images})`
-              }}
-              element={element}
-            >
-              <Info>
-                <Paragraph bold>{items.name}</Paragraph>
-                <Paragraph small>{`${items.technology},`}</Paragraph>
-                <Paragraph small other>
-                  {items.description}
-                </Paragraph>
-                <Bottom>
-                  {items.website && (
-                    <StyledButton target="_blank" href={items.website}>
-                      {buttonName}
-                    </StyledButton>
-                  )}
-                  {items.github && (
-                    <StyledButton other target="_blank" href={items.github}>
-                      GITHUB
-                    </StyledButton>
-                  )}
-                </Bottom>
-              </Info>
-            </Image>
+            <SwiperSlide className="slide">
+              <Image
+                style={{
+                  backgroundImage: `url(${process.env.PUBLIC_URL + '/images/projects' + items.images})`
+                }}
+                element={element}
+              >
+                <Info>
+                  <Paragraph bold>{items.name}</Paragraph>
+                  <Paragraph small>{`${items.technology},`}</Paragraph>
+                  <Paragraph small other>
+                    {items.description}
+                  </Paragraph>
+                  <Bottom>
+                    {items.website && (
+                      <StyledButton target="_blank" href={items.website}>
+                        {buttonName}
+                      </StyledButton>
+                    )}
+                    {items.github && (
+                      <StyledButton other target="_blank" href={items.github}>
+                        GITHUB
+                      </StyledButton>
+                    )}
+                  </Bottom>
+                </Info>
+              </Image>
+            </SwiperSlide>
           )
         )}
-      </Slider>
-
-      <LeftButton id="left-button" onClick={() => PrevProject()}>
-        <StyledBiChevronLeft />
-      </LeftButton>
-      <RightButton id="right-button" onClick={() => NextElement()}>
-        <StyledBiChevronRight />
-      </RightButton>
+      </Swiper>
     </Wrapper>
   );
 };

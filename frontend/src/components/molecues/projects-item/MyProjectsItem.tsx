@@ -50,7 +50,6 @@ const Top = styled.div`
 
 const StyledParagraph = styled(Paragraph)`
   margin: 10px 0px;
-  text-align: justify;
 `;
 
 interface Props {
