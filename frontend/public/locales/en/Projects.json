@@ -1,6 +1,7 @@
 {
     "title": "My projects",
     "button": "visit site",
+    "info": "Hover to see more information",
     "projects": [
         {
             "name": "Fotostudyjne",

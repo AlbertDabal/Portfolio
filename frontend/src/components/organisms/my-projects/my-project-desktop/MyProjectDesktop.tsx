@@ -23,7 +23,6 @@ const Image = styled.div<Props>`
   background-position: center;
   background-size: cover;
   width: 60vw;
-  height: 70vh;
   margin-right: 2vw;
 
   &:hover {

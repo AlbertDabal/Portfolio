@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
-  height: 40vh;
 `;
 
 const Wrapper = styled.div`
@@ -15,9 +14,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 95%;
+  height: 75vh;
   background-color: #1d1d1d;
   padding: 20px;
+  padding-bottom: 30px;
 `;
 
 const Bottom = styled.div`
@@ -45,11 +45,12 @@ const Top = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 30vh;
+  height: 40vh;
 `;
 
 const StyledParagraph = styled(Paragraph)`
   margin: 10px 0px;
+  text-align: justify;
 `;
 
 interface Props {

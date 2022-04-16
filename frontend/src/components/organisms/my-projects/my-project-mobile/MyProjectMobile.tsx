@@ -8,6 +8,7 @@ import { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import './styles.css';
 
 interface Props {
   length?: number;
@@ -21,17 +22,29 @@ interface Props {
 const Wrapper = styled.div`
   height: 100vh;
   width: 100%;
-  margin-left: 20%;
+  /* margin-left: 5%;
   @media (max-width: 500px) {
-    margin-left: 10%;
-  }
+    margin-left: 5%;
+  } */
   @media (min-width: 1001px) {
     display: none;
+  }
+
+  .slide {
+    width: 80%;
+
+    @media (max-width: 500px) {
+      width: 90%;
+    }
   }
 `;
 
 const StyledHeading = styled(Heading)`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  @media (max-width: 500px) {
+    margin-left: 5%;
+  }
 `;
 
 export const MyProjectMobile = ({ ProjectsData, title, buttonName }: Props) => {
@@ -40,7 +53,14 @@ export const MyProjectMobile = ({ ProjectsData, title, buttonName }: Props) => {
   return (
     <Wrapper id="my-project">
       <StyledHeading bold>{title}</StyledHeading>
-      <Swiper slidesPerView={1.2}>
+      <Swiper
+        slidesPerView="auto"
+        spaceBetween={10}
+        modules={[Pagination]}
+        pagination={true}
+        loop={true}
+        centeredSlides={true}
+      >
         {ProjectsData.map((item: any) => (
           <SwiperSlide className="slide">
             <MyProjectsItem
