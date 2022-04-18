@@ -35,7 +35,7 @@ export const MyProjects = () => {
 
   return (
     <>
-      {window.innerWidth >= 1001
+      {window.innerWidth >= 1451
         ? data && (
             <MyProjectDesktop
               ProjectsData={data.projects}

@@ -5,7 +5,7 @@ import { Heading } from 'components/atoms/heading/Heading';
 import { Button } from 'components/atoms/button/Button';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import swiper, { Pagination, Navigation } from 'swiper';
+import { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 
   /* max-width: 1150px; */
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1450px) {
     display: none;
   }
 `;
@@ -113,36 +113,6 @@ const Main = styled.div`
   margin-bottom: 30px;
 `;
 
-const LeftButton = styled(Button)`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  position: absolute;
-  margin-top: 36vh;
-  height: 20vh;
-  left: 850px;
-  width: 150px;
-  margin-left: -745px;
-  align-items: center;
-  justify-content: center;
-  z-index: 997;
-  background-color: red;
-`;
-
-const RightButton = styled(Button)`
-  background-color: transparent;
-  border: none;
-  display: flex;
-  height: 20vh;
-  position: absolute;
-  margin-top: 36vh;
-  right: 0;
-  width: 100px;
-  align-items: center;
-  z-index: 997;
-  color: #003f9d;
-`;
-
 const StyledBiChevronLeft = styled(BiChevronLeft)`
   font-size: 60pt;
   position: absolute;
@@ -170,15 +140,17 @@ const StyledBiChevronRight = styled(BiChevronRight)`
 `;
 
 export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info }: Props) => {
-  const [element, setElement] = useState(1);
+  const [element, setElement] = useState(0);
 
-  const Next = () => {
-    if (element < ProjectsData.length) setElement(element + 1);
-  };
+  useEffect(() => {
+    if (element === 1) {
+    } else {
+    }
+  });
 
-  const Prev = () => {
-    if (element > 1) setElement(element - 1);
-  };
+  const Next = () => {};
+
+  const Prev = () => {};
 
   return (
     <Wrapper id="my-project">
@@ -187,13 +159,13 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info 
         <Top>
           <StyledParagraph bold>{info}</StyledParagraph>
           <Line />
-          <StyledHeading bold>{`0${element}/0${ProjectsData.length}`}</StyledHeading>
+          <StyledHeading bold>{`0${element + 1}/0${ProjectsData.length}`}</StyledHeading>
         </Top>
       </Main>
 
-      <StyledBiChevronLeft className="swiper-button-prev-unique" onClick={() => Prev()} />
+      <StyledBiChevronLeft className="swiper-button-prev-unique" id="left-button" onClick={() => Prev()} />
 
-      <StyledBiChevronRight className="swiper-button-next-unique" onClick={() => Next()} />
+      <StyledBiChevronRight className="swiper-button-next-unique" id="right-button" onClick={() => Next()} />
 
       <Swiper
         slidesPerView="auto"
@@ -207,6 +179,7 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info 
         }}
         // loop={true}
         centeredSlides={true}
+        onSlideChange={(swiper) => setElement(swiper.activeIndex)}
       >
         {ProjectsData.map(
           (items: {

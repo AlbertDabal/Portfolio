@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const Image = styled.img`
   width: 100%;
+  height: auto;
   object-fit: cover;
 `;
 
@@ -14,7 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  height: 75vh;
+
   background-color: #1d1d1d;
   padding: 20px;
   padding-bottom: 30px;
@@ -45,7 +46,15 @@ const Top = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 40vh;
+  min-height: 20vh;
+
+  @media (max-width: 720px) {
+    min-height: 25vh;
+  }
+
+  @media (max-width: 450px) {
+    min-height: 35vh;
+  }
 `;
 
 const StyledParagraph = styled(Paragraph)`
