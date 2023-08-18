@@ -6,23 +6,23 @@ import baner from 'images/baner.png';
 import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Link } from 'react-scroll';
 import axios from 'axios';
+import profile from 'images/profile.png';
 
 const Wrapper = styled.div`
   height: 100vh;
   user-select: none;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-end;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(${process.env.PUBLIC_URL}/images/baner.png) no-repeat;
+  background: linear-gradient(224deg, #2d27ff 0%, #ff0a6c 100%);
   background-size: cover;
   background-blend-mode: normal, difference;
-  margin-bottom: 5vh;
 `;
 
 const Title = styled(Heading)`
-  text-transform: uppercase;
   text-align: center;
   font-size: 8rem;
 
@@ -52,27 +52,36 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const Image = styled.img`
-  border-radius: 50%;
-
   @media (max-width: 750px) {
-    width: 40%;
   }
+`;
+
+const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
   padding: 8px 50px;
-  text-transform: uppercase;
   background-color: ${({ theme }) => theme.themeColor};
   color: ${({ theme }) => theme.primaryColor};
   border: 3px solid #003f9d;
   text-decoration: none;
+  border-radius: 15px;
   cursor: pointer;
   transition: 0.8s all ease;
   &:hover {
     opacity: 0.7;
   }
+`;
+
+const Row = styled.div`
+  display: flex;
+  align-items: flex-end;
 `;
 
 export const Main = () => {
@@ -95,18 +104,18 @@ export const Main = () => {
   return (
     <Wrapper id="main">
       {data ? (
-        <>
-          <Image src={process.env.PUBLIC_URL + '/images/profile-main.png'} />
-
-          <Title bold>{data.title}</Title>
-          <StyledParagraph small other>
-            {data.subtitle}
-          </StyledParagraph>
-
-          <StyledLink to="about-me" spy={true} smooth={true} offset={-70} duration={500}>
-            {data.button}
-          </StyledLink>
-        </>
+        <Row>
+          <Description>
+            <Title bold>{data.title}</Title>
+            <StyledParagraph small other>
+              {data.subtitle}
+            </StyledParagraph>
+            <StyledLink to="about-me" spy={true} smooth={true} offset={-70} duration={500}>
+              {data.button}
+            </StyledLink>
+          </Description>
+          <Image src={profile} alt={profile} />
+        </Row>
       ) : null}
     </Wrapper>
   );

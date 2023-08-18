@@ -23,8 +23,8 @@ interface Props {
 const Image = styled.div<Props>`
   transition: 0.2s all ease;
   /* filter: grayscale(100%); */
-
-  height: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+  height: 70vh;
   background-position: center;
   background-size: cover;
 
@@ -40,7 +40,6 @@ const Image = styled.div<Props>`
 const Wrapper = styled.div`
   height: 100vh;
   /* overflow-x: hidden; */
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,9 +120,10 @@ const StyledBiChevronLeft = styled(BiChevronLeft)`
   z-index: 997;
   box-sizing: content-box;
   left: auto;
-  margin-left: -605px;
+  left: 0;
   color: #003f9d;
   cursor: pointer;
+  margin-left: 60px;
 `;
 
 const StyledBiChevronRight = styled(BiChevronRight)`
@@ -133,8 +133,8 @@ const StyledBiChevronRight = styled(BiChevronRight)`
   padding: 30px;
   z-index: 997;
   box-sizing: content-box;
-  right: auto;
-  margin-left: 605px;
+  right: 0;
+  margin-right: 60px;
   color: #003f9d;
   cursor: pointer;
 `;

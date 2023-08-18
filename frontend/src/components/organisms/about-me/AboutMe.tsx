@@ -3,7 +3,7 @@ import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
-import profile from 'images/profile.jpg';
+import profile from 'images/profile.png';
 import { Heading } from 'components/atoms/heading/Heading';
 import axios from 'axios';
 
@@ -15,13 +15,14 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 10vh;
+  background-color: black;
 
   @media (min-width: 1200px) {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border: 3px solid #003f9d;
+
     padding: 30px;
   }
 `;
@@ -34,7 +35,7 @@ const Image = styled.img`
   margin-bottom: 50px;
   margin-right: 50px;
   @media (min-width: 499px) {
-    height: 70vh;
+    height: 40vh;
     border-radius: 0px;
     /* box-shadow: 30px 30px 0px -10px #003f9d; */
     width: auto;
