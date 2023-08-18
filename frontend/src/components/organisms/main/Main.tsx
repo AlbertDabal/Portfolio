@@ -23,10 +23,9 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled(Heading)`
-  text-align: center;
-  font-size: 8rem;
+  font-size: 6rem;
 
-  @media (max-width: 1100px) {
+  /* @media (max-width: 1100px) {
     font-size: 8rem;
     margin-bottom: 20px;
   }
@@ -34,24 +33,18 @@ const Title = styled(Heading)`
   @media (max-width: 750px) {
     font-size: 4rem;
     margin-bottom: 20px;
-  }
+  } */
 `;
 
 const StyledParagraph = styled(Paragraph)`
-  text-align: center;
   padding-bottom: 2em;
-  width: 35%;
-
-  @media (max-width: 1100px) {
-    width: 80%;
-  }
-
-  @media (max-width: 750px) {
-    width: 90%;
-  }
 `;
 
 const Image = styled.img`
+  width: 50%;
+  position: absolute;
+  right: 10%;
+
   @media (max-width: 750px) {
   }
 `;
@@ -59,29 +52,35 @@ const Image = styled.img`
 const Description = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 10px;
   align-items: flex-start;
+
+  margin-bottom: 30%;
 `;
 
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  padding: 8px 50px;
-  background-color: ${({ theme }) => theme.themeColor};
-  color: ${({ theme }) => theme.primaryColor};
-  border: 3px solid #003f9d;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  padding: 15px 60px;
+  background-color: ${({ theme }) => 'black'};
+  color: ${({ theme }) => theme.primaryColorLight};
   text-decoration: none;
   border-radius: 15px;
   cursor: pointer;
   transition: 0.8s all ease;
   &:hover {
-    opacity: 0.7;
   }
 `;
 
 const Row = styled.div`
+  width: 80%;
   display: flex;
+  max-width: 1200px;
   align-items: flex-end;
+  justify-content: flex-start;
 `;
 
 export const Main = () => {
@@ -106,9 +105,12 @@ export const Main = () => {
       {data ? (
         <Row>
           <Description>
-            <Title bold>{data.title}</Title>
-            <StyledParagraph small other>
-              {data.subtitle}
+            <div>
+              <Title bold>{data.title}</Title>
+              <Title>{data.subtitle}</Title>
+            </div>
+            <StyledParagraph light>
+              <div dangerouslySetInnerHTML={{ __html: data.description }} />
             </StyledParagraph>
             <StyledLink to="about-me" spy={true} smooth={true} offset={-70} duration={500}>
               {data.button}

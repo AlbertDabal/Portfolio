@@ -1,8 +1,9 @@
 {
     "title": "About me",
-    "description": "I specialize in React technology. I believe that nothing is impossible - there are only things that require more time and effort. I always strive to be creative and focused on achieving the best possible results. Gaining of knowledge and continuous improvement drives me, therefore I often learn new technologies and tools to stay up-to-date with the latest industry trends. I always try to be open to feedback cause i feel that helps me to improve my skills and achieve even better results.",
+    "descriptionTop": "I believe that nothing is impossible - there are only things that require more time and effort. I always strive to be creative and focused on achieving the best possible results. ",
+    "description": "Gaining of knowledge and continuous improvement drives me, therefore I often learn new technologies and tools to stay up-to-date with the latest industry trends. I specialize in React technology. I always try to be open to feedback cause i feel that helps me to improve my skills and achieve even better results.",
     "linkedinButton": "my linkedin",
     "linkedinLink": "https://www.linkedin.com/in/albert-d%C4%85bal-552907148/",
-    "cvButton": "show cv",
+    "cvButton": "Show cv",
     "cvLink": "CV_EN.pdf"
 }

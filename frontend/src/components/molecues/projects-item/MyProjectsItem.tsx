@@ -82,10 +82,8 @@ export const MyProjectsItem = ({ dataItem, index, length, buttonName }: Props) =
     <Wrapper>
       <Top>
         <StyledParagraph>{dataItem.name}</StyledParagraph>
-        <StyledParagraph small>{`${dataItem.technology},`}</StyledParagraph>
-        <StyledParagraph small other>
-          {dataItem.description}
-        </StyledParagraph>
+        <StyledParagraph>{`${dataItem.technology},`}</StyledParagraph>
+        <StyledParagraph other>{dataItem.description}</StyledParagraph>
       </Top>
       <Bottom>
         {dataItem.website && (

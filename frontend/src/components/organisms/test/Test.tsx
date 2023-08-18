@@ -18,10 +18,8 @@ export const Test = () => {
       <h1>Paragraph</h1>
       <Paragraph>Poppins ExtraBold 32 </Paragraph>
       <Paragraph other>Poppins ExtraBold 32 thame</Paragraph>
-      <Paragraph small>Poppins Regular 16</Paragraph>
-      <Paragraph small other>
-        Poppins Extra Bold 16
-      </Paragraph>
+      <Paragraph>Poppins Regular 16</Paragraph>
+      <Paragraph other>Poppins Extra Bold 16</Paragraph>
       <h1>Button</h1>
       <Button>show case</Button>
       <h1>Navbar</h1>

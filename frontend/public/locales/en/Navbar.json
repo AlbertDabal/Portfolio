@@ -1,6 +1,6 @@
 [
     {
-        "name": "main",
+        "name": "home",
         "link": "main"
     },
     {
@@ -8,11 +8,11 @@
         "link": "about-me"
     },
     {
-        "name": "projects",
+        "name": "my projects",
         "link": "my-project"
     },
     {
-        "name": "contacts",
+        "name": "contact",
         "link": "contacts"
     }
 ]

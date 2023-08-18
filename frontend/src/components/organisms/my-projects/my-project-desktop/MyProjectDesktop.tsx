@@ -199,10 +199,8 @@ export const MyProjectDesktop = ({ width, ProjectsData, title, buttonName, info 
               >
                 <Info>
                   <Paragraph bold>{items.name}</Paragraph>
-                  <Paragraph small>{`${items.technology},`}</Paragraph>
-                  <Paragraph small other>
-                    {items.description}
-                  </Paragraph>
+                  <Paragraph>{`${items.technology},`}</Paragraph>
+                  <Paragraph other>{items.description}</Paragraph>
                   <Bottom>
                     {items.website && (
                       <StyledButton target="_blank" href={items.website}>

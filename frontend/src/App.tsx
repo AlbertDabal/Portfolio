@@ -24,7 +24,6 @@ const App = () => {
       <Navbar />
       <Main />
       <AboutMe />
-      <MyProjects />
       <Contacts />
     </Wrapper>
   );

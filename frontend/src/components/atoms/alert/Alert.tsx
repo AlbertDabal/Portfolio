@@ -23,9 +23,7 @@ const Wrapper = styled.div`
 export const Alert = () => {
   return (
     <Wrapper>
-      <Paragraph small bold>
-        THANKS FOR THE EMAIL
-      </Paragraph>
+      <Paragraph bold>THANKS FOR THE EMAIL</Paragraph>
     </Wrapper>
   );
 };

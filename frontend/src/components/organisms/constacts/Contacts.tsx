@@ -151,15 +151,11 @@ export const Contacts = () => {
                 <Paragraph bold other>
                   {data.phone}
                 </Paragraph>
-                <Paragraph small other>
-                  {data.phoneValue}
-                </Paragraph>
+                <Paragraph other>{data.phoneValue}</Paragraph>
                 <Paragraph bold other>
                   EMAIL
                 </Paragraph>
-                <Paragraph small other>
-                  {data.email}
-                </Paragraph>
+                <Paragraph other>{data.email}</Paragraph>
               </Info>
             </Footer>
           </div>

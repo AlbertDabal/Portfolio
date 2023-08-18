@@ -17,7 +17,7 @@ const WrapperMain = styled.div<Props>`
   top: 0;
   transition: 0.8s all ease;
   left: 0;
-  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')};
+  background-color: ${({ colorChange, theme }) => (colorChange ? 'black' : 'transparent')};
   @media (max-width: 1000px) {
     display: none;
   }
@@ -26,10 +26,11 @@ const WrapperMain = styled.div<Props>`
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  color: ${({ theme }) => '#333333'};
+  color: ${({ theme }) => 'hsla(0, 0%, 71%, 1)'};
   cursor: pointer;
   user-select: none;
   padding: 1.5em 1em;
+  text-transform: capitalize;
 `;
 
 const Wrapper = styled.nav`
@@ -44,7 +45,7 @@ const Wrapper = styled.nav`
 const Menu = styled.ul`
   display: flex;
   align-items: center;
-  width: 700px;
+  width: 600px;
 
   > .active {
     color: white;
@@ -83,8 +84,8 @@ export const NavbarDesktop = ({ colorChange }: Props) => {
         <Menu>
           {data &&
             data.map((item: { link: string; name: string }) => (
-              <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-70} duration={500}>
-                {item.name.toUpperCase()}
+              <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-60} duration={500}>
+                {item.name}
               </StyledLink>
             ))}
         </Menu>

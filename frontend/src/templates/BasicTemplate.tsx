@@ -4,14 +4,23 @@ import styled from 'styled-components';
 
 interface Props {
   children?: React.ReactElement;
-  index: number;
+  index?: number;
   id?: string;
+  backgroundColorStyle?: string;
 }
+const WrapperAll = styled.div<Props>`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: ${({ backgroundColorStyle: backgroundColor }) => (backgroundColor ? backgroundColor : 'transparent')};
+`;
 
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 80%;
-  max-width: 1150px;
+  max-width: 1200px;
 
   @media (max-width: 500px) {
     width: 90%;
@@ -20,10 +29,12 @@ const Wrapper = styled.div`
 
 const Main = styled.div``;
 
-export const BasicTemplate = ({ children, index, id }: Props) => {
+export const BasicTemplate = ({ children, index, id, backgroundColorStyle }: Props) => {
   return (
-    <Wrapper id={id}>
-      <Main>{children}</Main>
-    </Wrapper>
+    <WrapperAll backgroundColorStyle={backgroundColorStyle}>
+      <Wrapper id={id}>
+        <Main>{children}</Main>
+      </Wrapper>
+    </WrapperAll>
   );
 };
