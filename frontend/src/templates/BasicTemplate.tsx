@@ -11,6 +11,7 @@ interface Props {
 const WrapperAll = styled.div<Props>`
   width: 100%;
   display: flex;
+  height: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -18,7 +19,8 @@ const WrapperAll = styled.div<Props>`
 `;
 
 const Wrapper = styled.div`
-  min-height: 100vh;
+  min-height: 70vh;
+  height: 100%;
   width: 80%;
   max-width: 1200px;
 

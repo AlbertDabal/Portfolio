@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const TextArea = styled.textarea`
-  background: rgba(196, 196, 196, 0.1);
-  padding: 10px;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: #f5f5f7;
   width: 100%;
   outline: none;
-  color: white;
   border: 0;
   font-family: 'Poppins', sans-serif;
   resize: none;

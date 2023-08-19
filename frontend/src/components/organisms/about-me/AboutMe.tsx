@@ -12,6 +12,8 @@ import html from 'images/technology-icon/html.png';
 import js from 'images/technology-icon/js.png';
 import react from 'images/technology-icon/react.png';
 import ts from 'images/technology-icon/ts.png';
+import github from 'images/technology-icon/github.png';
+import linkedin from 'images/technology-icon/linkedin.png';
 
 const Wrapper = styled.div`
   margin-top: 15vh;
@@ -72,7 +74,29 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 70px;
-  margin-bottom: 150px;
+  padding-bottom: 150px;
+  position: relative;
+`;
+
+const IconBox = styled.a`
+  background-color: #141414;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  gap: 5px;
+  text-decoration: none;
+`;
+
+const GroupSocial = styled.div`
+  display: flex;
+  gap: 30px;
+  position: absolute;
+  right: 0;
+  bottom: -100px;
 `;
 
 export const AboutMe = () => {
@@ -93,7 +117,7 @@ export const AboutMe = () => {
   }, []);
   return (
     <BasicTemplate index={1} id="about-me" backgroundColorStyle="black">
-      <>
+      <div style={{ position: 'relative' }}>
         <Wrapper>
           {data && (
             <Description>
@@ -134,7 +158,21 @@ export const AboutMe = () => {
             </StyledParagraph>
           </div>
         </Row>
-      </>
+        <GroupSocial>
+          <IconBox target="_blank" href="https://github.com/AlbertDabal">
+            <img src={github} />
+            <Paragraph bold big light>
+              Github
+            </Paragraph>
+          </IconBox>
+          <IconBox target="_blank" href="https://www.linkedin.com/in/albert-d%C4%85bal/">
+            <img src={linkedin} />
+            <Paragraph bold big light>
+              Linkedin
+            </Paragraph>
+          </IconBox>
+        </GroupSocial>
+      </div>
     </BasicTemplate>
   );
 };

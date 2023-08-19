@@ -1,10 +1,10 @@
 {
-    "title": "Contacts",
+    "title": "Contact",
     "subtitle": "Let's Talk!",
     "emailPlaceholder": "Your Email",
     "textPlaceholder": "Please describe your problem",
-    "buttonSend": "send email",
+    "buttonSend": "Send Email",
     "phone": "PHONE",
-    "phoneValue": "887 692 891",
+    "phoneValue": "+48 887 692 891",
     "email": "albert.dabal22@gmail.com"
 }

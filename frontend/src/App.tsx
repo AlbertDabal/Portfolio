@@ -1,7 +1,9 @@
 import { Navbar } from 'components/molecues/navbar/Navbar';
 import { AboutMe } from 'components/organisms/about-me/AboutMe';
 import { Contacts } from 'components/organisms/constacts/Contacts';
+import Footer from 'components/organisms/footer/Footer';
 import { Main } from 'components/organisms/main/Main';
+import MyProjectNew from 'components/organisms/my-project-new/MyProjectNew';
 import { MyProjects } from 'components/organisms/my-projects/MyProjects';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
@@ -24,7 +26,9 @@ const App = () => {
       <Navbar />
       <Main />
       <AboutMe />
+      <MyProjectNew />
       <Contacts />
+      <Footer />
     </Wrapper>
   );
 };

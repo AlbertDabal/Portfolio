@@ -16,41 +16,30 @@ const Wrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  background-color: #0e0e0e;
+  padding: 50px;
 
-  padding-top: 10vh;
+  position: absolute;
+  top: -50px;
+  padding-top: 5vh;
   @media (max-width: 1000px) {
     padding-top: 2vh;
   }
 `;
 
 const Info = styled.div`
-  @media (max-width: 1000px) {
-    padding-left: 0;
-    height: 30vh;
-    padding-top: 40px;
-  }
-  height: 30vh;
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 30px;
+  flex: 1;
 `;
 
 const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex: 1;
 `;
 
 const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 4vh;
-
+  gap: 60px;
   @media (max-width: 1000px) {
     flex-direction: column;
     margin-top: 2vh;
@@ -58,7 +47,7 @@ const Footer = styled.footer`
 `;
 
 const StyledHeading = styled(Heading)`
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 
   @media (max-width: 1000px) {
     margin-bottom: 20px;
@@ -81,16 +70,12 @@ const Submit = styled.input`
   border: none;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  padding: 8px 50px;
-  text-transform: uppercase;
-  background-color: ${({ theme }) => theme.themeColor};
-  color: ${({ theme }) => theme.primaryColor};
-  border: 3px solid #003f9d;
+  padding: 25px 80px;
+  border-radius: 15px;
+  background: linear-gradient(188deg, #2d27ff 0%, #ff0a6c 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: ${({ theme }) => 'white'};
   text-decoration: none;
-
-  @media (max-width: 499px) {
-    padding: 4px 30px;
-  }
 `;
 
 export const Contacts = () => {
@@ -135,32 +120,32 @@ export const Contacts = () => {
   }, []);
 
   return (
-    <BasicTemplate index={4} id="contacts">
-      <Wrapper>
-        {done && <Alert />}
-        {data && (
-          <div style={{ width: '100%' }}>
-            <StyledHeading bold>{data.title}</StyledHeading>
-            <Footer>
-              <form onSubmit={sendEmail}>
-                <Input name="email" placeholder={data.emailPlaceholder} />
-                <TextArea name="message" placeholder={data.textPlaceholder} />
-                <Submit type="submit" value={data.buttonSend} />
-              </form>
-              <Info>
-                <Paragraph bold other>
-                  {data.phone}
-                </Paragraph>
-                <Paragraph other>{data.phoneValue}</Paragraph>
-                <Paragraph bold other>
-                  EMAIL
-                </Paragraph>
-                <Paragraph other>{data.email}</Paragraph>
-              </Info>
-            </Footer>
-          </div>
-        )}
-      </Wrapper>
+    <BasicTemplate index={4} backgroundColorStyle="black">
+      <div style={{ position: 'relative' }}>
+        <Wrapper id="contacts">
+          {done && <Alert />}
+          {data && (
+            <div style={{ width: '100%' }}>
+              <StyledHeading bold>{data.title}</StyledHeading>
+              <Footer>
+                <Form onSubmit={sendEmail}>
+                  <Input name="email" placeholder={data.emailPlaceholder} />
+                  <TextArea name="message" placeholder={data.textPlaceholder} />
+                  <Submit type="submit" value={data.buttonSend} />
+                </Form>
+                <Info>
+                  <div>
+                    <Paragraph other>{data.phoneValue}</Paragraph>
+                  </div>
+                  <div>
+                    <Paragraph other>{data.email}</Paragraph>
+                  </div>
+                </Info>
+              </Footer>
+            </div>
+          )}
+        </Wrapper>
+      </div>
     </BasicTemplate>
   );
 };
