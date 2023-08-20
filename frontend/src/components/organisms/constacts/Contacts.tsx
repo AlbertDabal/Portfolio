@@ -9,6 +9,8 @@ import { BasicTemplate } from 'templates/BasicTemplate';
 import emailjs from 'emailjs-com';
 import { Alert } from 'components/atoms/alert/Alert';
 import axios from 'axios';
+import email from 'images/technology-icon/email.png';
+import phone from 'images/technology-icon/phone.png';
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,16 +31,25 @@ const Wrapper = styled.div`
 
 const Info = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
 `;
 
 const Form = styled.form`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
 `;
 
 const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 60px;
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -134,11 +145,17 @@ export const Contacts = () => {
                   <Submit type="submit" value={data.buttonSend} />
                 </Form>
                 <Info>
-                  <div>
-                    <Paragraph other>{data.phoneValue}</Paragraph>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <img src={phone} />
+                    <Paragraph bold other>
+                      {data.phoneValue}
+                    </Paragraph>
                   </div>
-                  <div>
-                    <Paragraph other>{data.email}</Paragraph>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <img src={email} />
+                    <Paragraph bold other>
+                      {data.email}
+                    </Paragraph>
                   </div>
                 </Info>
               </Footer>

@@ -8,6 +8,5 @@ export const Input = styled.input`
   outline: none;
   border: 0;
   font-family: 'Poppins', sans-serif;
-  margin: 10px 0px;
   font-size: ${({ theme }) => theme.fontSize.s};
 `;
