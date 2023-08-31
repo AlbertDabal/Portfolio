@@ -18,7 +18,7 @@ const WrapperMain = styled.div<Props>`
   transition: 0.8s all ease;
   left: 0;
   background-color: ${({ colorChange, theme }) => (colorChange ? 'black' : 'transparent')};
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `;

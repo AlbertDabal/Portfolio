@@ -10,10 +10,10 @@ interface Props {
 }
 
 const Wrapper = styled.nav<Props>`
-  @media (min-width: 1001px) {
+  @media (min-width: 1101px) {
     display: none;
   }
-  background-color: ${({ colorChange, theme }) => (colorChange ? theme.backgroundColor : 'transparent')};
+  background-color: ${({ colorChange, theme }) => (colorChange ? 'black' : 'transparent')};
   width: 100%;
   display: flex;
   transition: 0.8s all ease;

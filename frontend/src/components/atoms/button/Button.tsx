@@ -10,7 +10,7 @@ export const Button = styled.a<Props>`
   border: none;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  padding: 10px 50px;
+  padding: 15px 50px;
 
   color: ${({ theme }) => 'white'};
   border-radius: 15px;
@@ -18,7 +18,4 @@ export const Button = styled.a<Props>`
   box-shadow: 0px -2px 12px 0px rgba(0, 0, 0, 0.58);
   text-decoration: none;
   cursor: pointer;
-  @media (max-width: 499px) {
-    padding: 4px 30px;
-  }
 `;

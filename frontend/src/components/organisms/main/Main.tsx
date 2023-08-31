@@ -25,11 +25,10 @@ const Wrapper = styled.div`
 const Title = styled(Heading)`
   font-size: 6rem;
 
-  /* @media (max-width: 1100px) {
-    font-size: 8rem;
-    margin-bottom: 20px;
+  @media (max-width: 800px) {
+    font-size: 3rem;
   }
-
+  /*
   @media (max-width: 750px) {
     font-size: 4rem;
     margin-bottom: 20px;
@@ -38,14 +37,25 @@ const Title = styled(Heading)`
 
 const StyledParagraph = styled(Paragraph)`
   padding-bottom: 2em;
+
+  @media (max-width: 800px) {
+    padding-bottom: 1em;
+  }
 `;
 
 const Image = styled.img`
   width: 50%;
+
   position: absolute;
   right: 10%;
+  bottom: 0;
 
-  @media (max-width: 750px) {
+  @media (max-width: 1350px) {
+    right: 0%;
+  }
+
+  @media (max-width: 1100px) {
+    display: none;
   }
 `;
 
@@ -56,7 +66,17 @@ const Description = styled.div`
   gap: 10px;
   align-items: flex-start;
 
-  margin-bottom: 30%;
+  margin-bottom: 50px;
+
+  /* margin-bottom: 30%;
+
+  @media (max-width: 1100px) {
+    margin-bottom: 40%;
+  }
+
+  @media (max-width: 800px) {
+    margin-bottom: 100%;
+  } */
 `;
 
 const StyledLink = styled(Link)`
@@ -64,7 +84,7 @@ const StyledLink = styled(Link)`
   font-weight: 800;
   border-radius: 15px;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-  padding: 15px 60px;
+  padding: 15px 50px;
   background-color: ${({ theme }) => 'black'};
   color: ${({ theme }) => theme.primaryColorLight};
   text-decoration: none;
@@ -72,15 +92,21 @@ const StyledLink = styled(Link)`
   cursor: pointer;
   transition: 0.8s all ease;
   &:hover {
+    opacity: 0.8;
   }
 `;
 
 const Row = styled.div`
   width: 80%;
   display: flex;
+  height: 100%;
   max-width: 1200px;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 export const Main = () => {
@@ -112,7 +138,7 @@ export const Main = () => {
             <StyledParagraph light>
               <div dangerouslySetInnerHTML={{ __html: data.description }} />
             </StyledParagraph>
-            <StyledLink to="about-me" spy={true} smooth={true} offset={-70} duration={500}>
+            <StyledLink to="about-me" spy={true} smooth={true} offset={-60} duration={500}>
               {data.button}
             </StyledLink>
           </Description>

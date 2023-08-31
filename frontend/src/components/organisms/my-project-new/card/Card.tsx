@@ -13,6 +13,10 @@ interface Props {
   index: number;
 }
 
+interface Color {
+  other?: boolean;
+}
+
 const Wrapper = styled.div`
   width: 100%;
   min-height: 40vh;
@@ -28,11 +32,13 @@ const Wrapper = styled.div`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 20px;
 `;
 
 const Image = styled.img`
   height: 40vh;
   width: 60%;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
   /* filter: grayscale(100%); */
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
   height: 40vh;
@@ -48,14 +54,39 @@ const Title = styled.h1`
   font-weight: 600;
 `;
 
+const Button = styled.button<Color>`
+  border: none;
+  outline: none;
+  color: white;
+  background: ${({ other }) => (!other ? '#2d27ff' : '#FF0A6C')};
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 30px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.8s all ease;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const WrapperButton = styled.div`
+  display: flex;
+  gap: 15px;
+`;
+
 const Card = ({ images, name, description, github, website, index }: Props) => {
   return (
     <Wrapper>
-      {console.log('index', index)}
       {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
       <Info>
         <Title>{name}</Title>
         <Paragraph>{description}</Paragraph>
+        <WrapperButton>
+          <Button>Github</Button>
+          <Button other>Site</Button>
+        </WrapperButton>
       </Info>
     </Wrapper>
   );

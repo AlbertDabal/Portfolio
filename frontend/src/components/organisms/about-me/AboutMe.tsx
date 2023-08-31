@@ -17,7 +17,7 @@ import linkedin from 'images/technology-icon/linkedin.png';
 
 const Wrapper = styled.div`
   margin-top: 15vh;
-  min-height: 50vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,10 +32,19 @@ const Image = styled.img`
   box-shadow: none;
   position: absolute;
   right: -100px;
+
+  @media (max-width: 1300px) {
+    width: 80%;
+    margin-top: -170px;
+  }
+
+  @media (max-width: 1110px) {
+    display: none;
+  }
 `;
 
 const Description = styled.div`
-  height: 50vh;
+  min-height: 30vh;
   width: 42.5%;
   display: flex;
   flex-direction: column;
@@ -43,11 +52,17 @@ const Description = styled.div`
   gap: 20px;
   align-items: flex-start;
   text-align: justify;
+
+  @media (max-width: 1110px) {
+    width: 100%;
+  }
 `;
 
 const StyledButton = styled(Button)`
-  margin: 10px 30px 10px 0px;
-  max-width: 30vh;
+  margin-top: 20px;
+  width: 170px;
+
+  /* margin: 10px 30px 10px 0px; */
   text-align: center;
   transition: 0.8s all ease;
   &:hover {
@@ -76,6 +91,10 @@ const Row = styled.div`
   gap: 70px;
   padding-bottom: 150px;
   position: relative;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
 const IconBox = styled.a`
@@ -97,6 +116,13 @@ const GroupSocial = styled.div`
   position: absolute;
   right: 0;
   bottom: -100px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    position: relative;
+    bottom: 80px;
+    flex-direction: row;
+  }
 `;
 
 export const AboutMe = () => {
@@ -141,7 +167,7 @@ export const AboutMe = () => {
           <img style={{ flex: 1 }} src={profile2} />
           <div style={{ flex: 1 }}>
             <Heading bold>Main skills</Heading>
-            <div style={{ display: 'flex', gap: 60, marginTop: 40 }}>
+            <div style={{ display: 'flex', gap: 60, marginTop: 40, flexWrap: 'wrap' }}>
               <img src={react} />
               <img src={js} />
               <img src={ts} />
