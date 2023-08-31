@@ -118,7 +118,7 @@ export const NavbarMobile = ({ colorChange }: Props) => {
                 to={item.link}
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-60}
                 duration={500}
               >
                 {item.name.toUpperCase()}

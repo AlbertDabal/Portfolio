@@ -17,6 +17,19 @@ import linkedin from 'images/technology-icon/linkedin.png';
 
 const Wrapper = styled.div`
   margin-top: 15vh;
+
+  @media (max-width: 1300px) {
+    margin-top: 7vh;
+  }
+
+  @media (max-width: 800px) {
+    margin-top: 4vh;
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 4vh;
+  }
+
   min-height: 30vh;
   display: flex;
   flex-direction: column;
@@ -24,6 +37,10 @@ const Wrapper = styled.div`
   align-items: flex-start;
   margin-bottom: 10vh;
   position: relative;
+
+  @media (max-width: 1110px) {
+    margin-bottom: 5vh;
+  }
 `;
 
 const Image = styled.img`

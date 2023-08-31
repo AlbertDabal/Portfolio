@@ -23,7 +23,12 @@ const Wrapper = styled.div`
   height: 100%;
   background-color: white;
   padding: 30px;
+  @media (max-width: 1100px) {
+    padding: 20px;
+  }
+
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 20px;
   justify-content: space-between;
@@ -33,12 +38,21 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 1100px) {
+    align-self: start;
+  }
+
+  flex: 4;
+  height: 100%;
 `;
 
 const Image = styled.img`
-  height: 40vh;
-  width: 60%;
+  height: auto;
+  object-fit: contain;
+  width: 100%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+
   /* filter: grayscale(100%); */
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
   height: 40vh;
@@ -79,7 +93,9 @@ const WrapperButton = styled.div`
 const Card = ({ images, name, description, github, website, index }: Props) => {
   return (
     <Wrapper>
-      {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
+      <div style={{ flex: 6 }}>
+        {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
+      </div>
       <Info>
         <Title>{name}</Title>
         <Paragraph>{description}</Paragraph>

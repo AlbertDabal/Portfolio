@@ -26,13 +26,13 @@ const WrapperProject = styled.div`
   & > div:nth-child(even) {
     flex-direction: row-reverse;
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1100px) {
       flex-direction: column;
     }
   }
 
   & > div:nth-child(odd) {
-    @media (max-width: 1400px) {
+    @media (max-width: 1100px) {
       flex-direction: column;
     }
   }
@@ -50,6 +50,17 @@ const Button = styled.button`
   font-size: 16px;
   color: white;
   cursor: pointer;
+
+  @media (max-width: 1100px) {
+    background: transparent;
+    box-shadow: none;
+    color: black;
+    text-decoration: underline;
+    font-weight: 600;
+    & > span {
+      text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
 
   transition: 0.8s all ease;
   &:hover {
@@ -77,7 +88,7 @@ const MyProjectNew = () => {
 
   return (
     <BasicTemplate id="my-project">
-      <div style={{ paddingBottom: '10vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ paddingBottom: '15vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Title>{data?.title}</Title>
         <WrapperProject>
           {data?.projects &&
@@ -106,7 +117,11 @@ const MyProjectNew = () => {
                 )
               )}
         </WrapperProject>
-        {!moreShow && <Button onClick={() => setMoreShow(true)}>See More...</Button>}
+        {!moreShow && (
+          <Button onClick={() => setMoreShow(true)}>
+            <span>See More...</span>
+          </Button>
+        )}
       </div>
     </BasicTemplate>
   );
