@@ -79,9 +79,9 @@ const Button = styled.button<Color>`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.8s all ease;
+  transition: 0.4s all ease;
   &:hover {
-    opacity: 0.8;
+    transform: perspective(1000px) translateZ(50px);
   }
 `;
 

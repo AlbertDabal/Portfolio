@@ -31,6 +31,10 @@ const StyledLink = styled(Link)`
   user-select: none;
   padding: 1.5em 1em;
   text-transform: capitalize;
+  transition: 0.4s all ease;
+  &:hover {
+    transform: perspective(1000px) translateZ(50px);
+  }
 `;
 
 const Wrapper = styled.nav`
@@ -49,6 +53,9 @@ const Menu = styled.ul`
 
   > .active {
     color: white;
+    text-decoration: underline;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 2px;
   }
   justify-content: space-between;
 `;

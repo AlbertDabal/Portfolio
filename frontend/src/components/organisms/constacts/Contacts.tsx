@@ -23,9 +23,12 @@ const Wrapper = styled.div`
 
   position: absolute;
   top: -50px;
+
   padding-top: 5vh;
   @media (max-width: 1000px) {
     padding-top: 2vh;
+    top: 50px;
+    padding: 50px 25px;
   }
 `;
 
@@ -75,7 +78,7 @@ const StyledParagraph = styled(Paragraph)`
 const Submit = styled.input`
   transition: 0.8s all ease;
   &:hover {
-    opacity: 0.7;
+    transform: perspective(1000px) translateZ(50px);
   }
   cursor: pointer;
   border: none;

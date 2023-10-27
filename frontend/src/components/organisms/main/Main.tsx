@@ -83,16 +83,23 @@ const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
   border-radius: 15px;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px 50px;
   background-color: ${({ theme }) => 'black'};
   color: ${({ theme }) => theme.primaryColorLight};
   text-decoration: none;
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.8s all ease;
+  transform: scale(1);
+  transform-origin: center;
+
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 3px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 5px -2px rgba(0, 0, 0, 0.2);
+  transition: 0.5s all ease;
   &:hover {
-    opacity: 0.8;
+    transform: perspective(1000px) translateZ(100px);
   }
 `;
 

@@ -42,7 +42,7 @@ const Button = styled.button`
   margin-top: 20px;
   border-radius: 15px;
   background: linear-gradient(180deg, #2d27ff 0%, #ff0a6c 130.39%);
-  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.25);
+
   outline: none;
   border: none;
   padding: 15px 75px;
@@ -50,6 +50,12 @@ const Button = styled.button`
   font-size: 16px;
   color: white;
   cursor: pointer;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 3px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 5px -2px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: perspective(1000px) translateZ(50px);
+  }
 
   @media (max-width: 1100px) {
     background: transparent;
@@ -63,9 +69,6 @@ const Button = styled.button`
   }
 
   transition: 0.8s all ease;
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 const MyProjectNew = () => {

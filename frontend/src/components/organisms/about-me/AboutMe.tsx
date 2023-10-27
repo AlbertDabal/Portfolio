@@ -81,9 +81,9 @@ const StyledButton = styled(Button)`
 
   /* margin: 10px 30px 10px 0px; */
   text-align: center;
-  transition: 0.8s all ease;
+  transition: 0.5s all ease;
   &:hover {
-    opacity: 0.7;
+    transform: perspective(1000px) translateZ(100px);
   }
 `;
 
