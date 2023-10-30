@@ -1,3 +1,4 @@
+import HamburgerMenu from 'components/molecues/hamburger-menu/HamburgerMenu';
 import { Navbar } from 'components/molecues/navbar/Navbar';
 import { AboutMe } from 'components/organisms/about-me/AboutMe';
 import { Contacts } from 'components/organisms/constacts/Contacts';

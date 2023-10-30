@@ -4,21 +4,24 @@ import { BiMenu, BiPlus } from 'react-icons/bi';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { Heading } from 'components/atoms/heading/Heading';
 import axios from 'axios';
+import HamburgerMenu from 'components/molecues/hamburger-menu/HamburgerMenu';
+import { motion } from 'framer-motion';
 
 interface Props {
-  colorChange?: boolean;
+  isOpen?: boolean;
 }
 
 const Wrapper = styled.nav<Props>`
   @media (min-width: 1101px) {
     display: none;
   }
-  background-color: ${({ colorChange, theme }) => (colorChange ? 'black' : 'transparent')};
+  background-color: black;
   width: 100%;
   display: flex;
-  transition: 0.8s all ease;
-  z-index: 999;
-  height: 8vh;
+  transition: 0.5s all ease;
+  z-index: 9999;
+  height: ${({ isOpen }) => (isOpen ? '100vh' : '50px')};
+
   position: fixed;
   top: 0;
 
@@ -60,28 +63,39 @@ const StyledBiPlus = styled(BiPlus)`
 
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.m};
-  font-weight: 400;
-  color: black;
+  font-weight: 800;
+  color: white;
   cursor: pointer;
   user-select: none;
-`;
+  text-transform: capitalize;
+  color: ${({ theme }) => 'hsla(0, 0%, 71%, 1)'};
 
-const MainWrapper = styled.div`
-  background-color: white;
-  width: 100%;
-  height: 100vh;
-  transition: 0.3s all ease;
+  &:hover {
+    transform: perspective(1000px) translateZ(50px);
+  }
 `;
 
 const Menu = styled.div`
+  transition: 0.5s all ease;
   height: 40vh;
   margin: 40% 20% 0% 20%;
   display: flex;
   flex-direction: column;
+  overflow-y: hidden;
   justify-content: space-between;
+  align-items: flex-start;
 `;
 
-export const NavbarMobile = ({ colorChange }: Props) => {
+const variants = {
+  open: {
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+  },
+  closed: {
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
+};
+
+export const NavbarMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [data, setData] = useState<any>(null);
@@ -101,15 +115,13 @@ export const NavbarMobile = ({ colorChange }: Props) => {
   }, []);
 
   return (
-    <Wrapper colorChange={colorChange}>
-      {!isOpen ? (
-        <StyledBiMenu onClick={() => setIsOpen(!isOpen)} />
-      ) : (
-        <StyledBiPlus onClick={() => setIsOpen(!isOpen)} />
-      )}
+    <Wrapper isOpen={isOpen}>
+      <div style={{ position: 'absolute', right: 0 }}>
+        <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      </div>
 
-      <MainWrapper style={isOpen ? { display: 'flex' } : { display: 'none' }}>
-        <Menu>
+      <Menu style={isOpen ? { opacity: 1 } : { opacity: 0 }}>
+        <motion.ul variants={variants} animate={isOpen ? 'open' : 'closed'}>
           {data &&
             data.map((item: { link: string; name: string }) => (
               <StyledLink
@@ -121,11 +133,11 @@ export const NavbarMobile = ({ colorChange }: Props) => {
                 offset={-60}
                 duration={500}
               >
-                {item.name.toUpperCase()}
+                {item.name}
               </StyledLink>
             ))}
-        </Menu>
-      </MainWrapper>
+        </motion.ul>
+      </Menu>
     </Wrapper>
   );
 };

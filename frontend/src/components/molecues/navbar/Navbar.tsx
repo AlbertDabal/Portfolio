@@ -25,7 +25,7 @@ export const Navbar = () => {
   return (
     <>
       <NavbarDesktop colorChange={colorChange} />
-      <NavbarMobile colorChange={colorChange} />
+      <NavbarMobile />
     </>
   );
 };
