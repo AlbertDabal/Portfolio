@@ -160,7 +160,7 @@ export const NavbarMobile = () => {
                 to={item.link}
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-30}
                 duration={500}
               >
                 {item.name}

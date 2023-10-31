@@ -135,25 +135,88 @@ export const Main = () => {
     GetData();
   }, []);
 
+  const containerStart = {
+    hidden: {
+      opacity: 0,
+      transition: {},
+      x: '-100vw'
+    },
+    visable: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        velocity: -100,
+        delay: 0.1,
+        duration: 0.3
+      }
+    }
+  };
+
+  const containerNext = {
+    hidden: {
+      opacity: 0,
+      transition: {}
+    },
+    visable: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        velocity: -100,
+        duration: 0.3,
+        delay: 1
+      }
+    }
+  };
+
   return (
     <Wrapper id="main">
       {data ? (
         <Row>
           <Description>
             <div>
-              <Title bold>{data.title}</Title>
-              <Title>{data.subtitle}</Title>
+              <motion.h1 variants={containerStart} initial="hidden" animate="visable">
+                <Title bold>{data.title}</Title>
+              </motion.h1>
+              <motion.h1 variants={containerStart} initial="hidden" animate="visable">
+                <Title>{data.subtitle}</Title>
+              </motion.h1>
             </div>
-            <StyledParagraph light>
-              <div dangerouslySetInnerHTML={{ __html: data.description }} />
-            </StyledParagraph>
-            <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-              <StyledLink to="about-me" spy={true} smooth={true} offset={-60} duration={500}>
-                {data.button}
-              </StyledLink>
+            <motion.p variants={containerNext} initial="hidden" animate="visable">
+              <StyledParagraph light>
+                <div dangerouslySetInnerHTML={{ __html: data.description }} />
+              </StyledParagraph>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ opacity: 1, scale: [1, 1.1, 1] }}
+              transition={{
+                delay: 1.5,
+                duration: 0.5,
+                scale: {
+                  duration: 1.5,
+                  delay: 1.4
+                }
+              }}
+            >
+              <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+                <StyledLink to="about-me" spy={true} smooth={true} offset={-30} duration={500}>
+                  {data.button}
+                </StyledLink>
+              </motion.div>
             </motion.div>
           </Description>
-          <Image src={profile} alt={profile} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 0.8,
+              duration: 0.5
+            }}
+          >
+            <Image src={profile} alt={profile} />
+          </motion.div>
         </Row>
       ) : null}
     </Wrapper>
