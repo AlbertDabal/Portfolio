@@ -7,6 +7,7 @@ import { Paragraph } from 'components/atoms/paragraph/Paragraph';
 import { Link } from 'react-scroll';
 import axios from 'axios';
 import profile from 'images/profile.png';
+import { motion, sync, useCycle } from 'framer-motion';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -94,13 +95,14 @@ const StyledLink = styled(Link)`
   cursor: pointer;
   transform: scale(1);
   transform-origin: center;
+  -webkit-tap-highlight-color: transparent;
 
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12), 0px 2px 3px 0px rgba(0, 0, 0, 0.14),
     0px 3px 5px -2px rgba(0, 0, 0, 0.2);
-  transition: 0.5s all ease;
+  /* transition: 0.5s all ease;
   &:hover {
     transform: perspective(1000px) translateZ(100px);
-  }
+  } */
 `;
 
 const Row = styled.div`
@@ -145,9 +147,11 @@ export const Main = () => {
             <StyledParagraph light>
               <div dangerouslySetInnerHTML={{ __html: data.description }} />
             </StyledParagraph>
-            <StyledLink to="about-me" spy={true} smooth={true} offset={-60} duration={500}>
-              {data.button}
-            </StyledLink>
+            <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+              <StyledLink to="about-me" spy={true} smooth={true} offset={-60} duration={500}>
+                {data.button}
+              </StyledLink>
+            </motion.div>
           </Description>
           <Image src={profile} alt={profile} />
         </Row>

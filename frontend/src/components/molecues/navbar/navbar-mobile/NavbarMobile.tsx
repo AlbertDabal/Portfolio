@@ -5,7 +5,7 @@ import { Link, animateScroll as scroll } from 'react-scroll';
 import { Heading } from 'components/atoms/heading/Heading';
 import axios from 'axios';
 import HamburgerMenu from 'components/molecues/hamburger-menu/HamburgerMenu';
-import { motion } from 'framer-motion';
+import { motion, sync, useCycle } from 'framer-motion';
 
 interface Props {
   isOpen?: boolean;
@@ -44,23 +44,6 @@ const Wrapper = styled.nav<Props>`
   }
 `;
 
-const StyledBiMenu = styled(BiMenu)`
-  transition: color 200ms linear;
-  color: white;
-  &:hover {
-    color: #585858;
-  }
-`;
-
-const StyledBiPlus = styled(BiPlus)`
-  transition: color 200ms linear;
-  &:hover {
-    color: #585858;
-  }
-  color: black;
-  transform: rotate(45deg);
-`;
-
 const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: 800;
@@ -76,7 +59,6 @@ const StyledLink = styled(Link)`
 `;
 
 const Menu = styled.div`
-  transition: 0.5s all ease;
   height: 40vh;
   margin: 40% 20% 0% 20%;
   display: flex;
@@ -96,9 +78,9 @@ const variants = {
 };
 
 export const NavbarMobile = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const [data, setData] = useState<any>(null);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const GetData = async () => {
@@ -114,16 +96,64 @@ export const NavbarMobile = () => {
     GetData();
   }, []);
 
+  const variants = {
+    open: {
+      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 }
+    }
+  };
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {},
+      y: '-100vh'
+    },
+    visable: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        velocity: -100,
+        delay: 0.1,
+        duration: 0.3,
+        type: 'tween'
+      }
+    }
+  };
+
+  const containerTest = {
+    hidden: {
+      opacity: 0,
+      transition: {},
+      y: '-100vh'
+    },
+    visable: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        velocity: -100,
+        delay: 0.1,
+        duration: 0.3,
+        type: 'tween'
+      }
+    }
+  };
+
   return (
     <Wrapper isOpen={isOpen}>
       <div style={{ position: 'absolute', right: 0 }}>
         <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
 
-      <Menu style={isOpen ? { opacity: 1 } : { opacity: 0 }}>
-        <motion.ul variants={variants} animate={isOpen ? 'open' : 'closed'}>
-          {data &&
-            data.map((item: { link: string; name: string }) => (
+      <Menu>
+        {data &&
+          isOpen &&
+          data.map((item: { link: string; name: string }) => (
+            <motion.ul variants={containerVariants} initial="hidden" animate="visable">
               <StyledLink
                 onClick={() => setIsOpen(!isOpen)}
                 activeClass="active"
@@ -135,8 +165,8 @@ export const NavbarMobile = () => {
               >
                 {item.name}
               </StyledLink>
-            ))}
-        </motion.ul>
+            </motion.ul>
+          ))}
       </Menu>
     </Wrapper>
   );

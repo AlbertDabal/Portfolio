@@ -14,6 +14,15 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none;
+
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
 `;
 
 const App = () => {
