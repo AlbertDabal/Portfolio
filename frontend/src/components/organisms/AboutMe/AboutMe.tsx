@@ -1,11 +1,11 @@
-import { Button } from 'components/atoms/button/Button';
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import { Button } from 'components/atoms/Button/Button';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
 import laptop from 'images/laptop.png';
 import profile2 from 'images/profile2.png';
-import { Heading } from 'components/atoms/heading/Heading';
+import { Heading } from 'components/atoms/Heading/Heading';
 import axios from 'axios';
 import css from 'images/technology-icon/css.png';
 import html from 'images/technology-icon/html.png';
@@ -192,7 +192,7 @@ const infoVariant: Variants = {
   }
 };
 
-export const AboutMe = () => {
+const AboutMe = () => {
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
@@ -328,3 +328,5 @@ export const AboutMe = () => {
     </BasicTemplate>
   );
 };
+
+export default AboutMe;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
-import Card from './card/Card';
+import Card from './Card/Card';
 
 const Title = styled.h1`
   background: linear-gradient(182deg, #4924ec 0%, #cb1291 100%);
@@ -71,7 +71,7 @@ const Button = styled.button`
   transition: 0.8s all ease;
 `;
 
-const MyProjectNew = () => {
+const MyProject = () => {
   const [data, setData] = useState<any>(null);
   const [moreShow, setMoreShow] = useState<boolean>(false);
 
@@ -130,4 +130,4 @@ const MyProjectNew = () => {
   );
 };
 
-export default MyProjectNew;
+export default MyProject;

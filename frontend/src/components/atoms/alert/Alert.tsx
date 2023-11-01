@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '../button/Button';
-import { Heading } from '../heading/Heading';
-import { Paragraph } from '../paragraph/Paragraph';
+import { Button } from '../Button/Button';
+import { Heading } from '../Heading/Heading';
+import { Paragraph } from '../Paragraph/Paragraph';
 
 const Wrapper = styled.div`
   position: fixed;

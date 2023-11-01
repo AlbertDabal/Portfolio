@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import logo from 'images/logo.png';
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
-import { Button } from 'components/atoms/button/Button';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import { Button } from 'components/atoms/Button/Button';
 import axios from 'axios';
 
 interface Props {
@@ -38,7 +38,6 @@ const StyledLink = styled(Link)`
 `;
 
 const Wrapper = styled.nav`
-  /* border-bottom: 1px solid ${({ theme }) => theme.secondaryColor}; */
   display: flex;
   justify-content: space-between;
   text-align: center;

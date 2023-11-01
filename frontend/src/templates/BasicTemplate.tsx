@@ -1,4 +1,4 @@
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 

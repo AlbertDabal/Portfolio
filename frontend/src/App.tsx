@@ -1,12 +1,10 @@
-import HamburgerMenu from 'components/molecues/hamburger-menu/HamburgerMenu';
-import { Navbar } from 'components/molecues/navbar/Navbar';
-import { AboutMe } from 'components/organisms/about-me/AboutMe';
-import { Contacts } from 'components/organisms/constacts/Contacts';
-import Footer from 'components/organisms/footer/Footer';
-import { Main } from 'components/organisms/main/Main';
-import MyProjectNew from 'components/organisms/my-project-new/MyProjectNew';
-import { MyProjects } from 'components/organisms/my-projects/MyProjects';
-import React, { useEffect } from 'react';
+import { Navbar } from 'components/molecues/Navbar/Navbar';
+import AboutMe from 'components/organisms/AboutMe/AboutMe';
+import { Contacts } from 'components/organisms/Constacts/Contacts';
+import Footer from 'components/organisms/Footer/Footer';
+import Main from 'components/organisms/Main/Main';
+import MyProject from 'components/organisms/MyProject/MyProject';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -36,7 +34,7 @@ const App = () => {
       <Navbar />
       <Main />
       <AboutMe />
-      <MyProjectNew />
+      <MyProject />
       <Contacts />
       <Footer />
     </Wrapper>

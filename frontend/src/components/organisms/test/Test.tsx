@@ -1,8 +1,8 @@
-import { Button } from 'components/atoms/button/Button';
-import { Heading } from 'components/atoms/heading/Heading';
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
-import { NavbarDesktop } from 'components/molecues/navbar/navbar-desktop/NavbarDesktop';
-import { NavbarMobile } from 'components/molecues/navbar/navbar-mobile/NavbarMobile';
+import { Button } from 'components/atoms/Button/Button';
+import { Heading } from 'components/atoms/Heading/Heading';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import { NavbarDesktop } from 'components/molecues/Navbar/NavbarDesktop/NavbarDesktop';
+import { NavbarMobile } from 'components/molecues/Navbar/NavbarMobile/NavbarMobile';
 import React from 'react';
 
 export const Test = () => {

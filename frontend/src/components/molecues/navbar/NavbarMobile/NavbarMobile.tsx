@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BiMenu, BiPlus } from 'react-icons/bi';
 import { Link, animateScroll as scroll } from 'react-scroll';
-import { Heading } from 'components/atoms/heading/Heading';
+import { Heading } from 'components/atoms/Heading/Heading';
 import axios from 'axios';
-import HamburgerMenu from 'components/molecues/hamburger-menu/HamburgerMenu';
+import HamburgerMenu from 'components/molecues/Navbar/NavbarMobile/HamburgerMenu/HamburgerMenu';
 import { motion, sync, useCycle } from 'framer-motion';
 
 interface Props {
@@ -68,15 +68,6 @@ const Menu = styled.div`
   align-items: flex-start;
 `;
 
-const variants = {
-  open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-  }
-};
-
 export const NavbarMobile = () => {
   const [data, setData] = useState<any>(null);
 
@@ -96,35 +87,7 @@ export const NavbarMobile = () => {
     GetData();
   }, []);
 
-  const variants = {
-    open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-    },
-    closed: {
-      transition: { staggerChildren: 0.05, staggerDirection: -1 }
-    }
-  };
-
   const containerVariants = {
-    hidden: {
-      opacity: 0,
-      transition: {},
-      y: '-100vh'
-    },
-    visable: {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {
-        velocity: -100,
-        delay: 0.1,
-        duration: 0.3,
-        type: 'tween'
-      }
-    }
-  };
-
-  const containerTest = {
     hidden: {
       opacity: 0,
       transition: {},

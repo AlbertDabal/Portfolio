@@ -1,5 +1,5 @@
-import { Button } from 'components/atoms/button/Button';
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import { Button } from 'components/atoms/Button/Button';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import React from 'react';
 
 import styled from 'styled-components';
@@ -77,7 +77,7 @@ interface Project {
   github: string;
 }
 
-export const MyProjectsItem = ({ dataItem, index, length, buttonName }: Props) => {
+export const ProjectItem = ({ dataItem, index, length, buttonName }: Props) => {
   return (
     <Wrapper>
       <Top>

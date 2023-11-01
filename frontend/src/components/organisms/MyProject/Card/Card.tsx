@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { Heading } from 'components/atoms/heading/Heading';
-import { Paragraph } from 'components/atoms/paragraph/Paragraph';
+import { Heading } from 'components/atoms/Heading/Heading';
+import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 
 interface Props {
   images?: string;

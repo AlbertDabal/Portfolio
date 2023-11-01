@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { NavbarDesktop } from './navbar-desktop/NavbarDesktop';
-import { NavbarMobile } from './navbar-mobile/NavbarMobile';
+import { NavbarDesktop } from './NavbarDesktop/NavbarDesktop';
+import { NavbarMobile } from './NavbarMobile/NavbarMobile';
 
 export const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);
