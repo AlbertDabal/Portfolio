@@ -1,6 +1,6 @@
 import { animationShowElement, animationSlideLeft } from 'components/animation/animation';
 import { Heading } from 'components/atoms/Heading/Heading';
-import StyledLink from 'components/atoms/Link/Link';
+import LinkLocal from 'components/atoms/Link/LinkLocal';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
@@ -78,9 +78,9 @@ const Button = ({ button }: ButtonProps) => {
         }
       }}
     >
-      <StyledLink to="about-me" spy={true} smooth={true} offset={-30} duration={500}>
+      <LinkLocal to="about-me" spy={true} smooth={true} offset={-30} duration={500}>
         {button}
-      </StyledLink>
+      </LinkLocal>
     </motion.div>
   );
 };

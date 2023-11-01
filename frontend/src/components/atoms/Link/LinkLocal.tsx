@@ -30,7 +30,7 @@ export const StyledLinkTest = styled(Link)`
     0px 3px 5px -2px rgba(0, 0, 0, 0.2);
 `;
 
-const StyledLink = (props: Props) => {
+const LinkLocal = (props: Props) => {
   console.log('props', props);
 
   return (
@@ -40,4 +40,4 @@ const StyledLink = (props: Props) => {
   );
 };
 
-export default StyledLink;
+export default LinkLocal;

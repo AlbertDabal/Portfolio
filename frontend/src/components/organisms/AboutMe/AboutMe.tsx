@@ -3,7 +3,7 @@ import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
-import laptop from 'images/laptop.png';
+
 import profile2 from 'images/profile2.png';
 import { Heading } from 'components/atoms/Heading/Heading';
 import axios from 'axios';
@@ -15,80 +15,7 @@ import ts from 'images/technology-icon/ts.png';
 import github from 'images/technology-icon/github.png';
 import linkedin from 'images/technology-icon/linkedin.png';
 import { motion, Variants } from 'framer-motion';
-
-const Wrapper = styled.div`
-  margin-top: 15vh;
-
-  @media (max-width: 1300px) {
-    margin-top: 7vh;
-  }
-
-  @media (max-width: 800px) {
-    margin-top: 4vh;
-  }
-
-  @media (max-width: 500px) {
-    margin-top: 4vh;
-  }
-
-  min-height: 30vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10vh;
-  position: relative;
-
-  @media (max-width: 1110px) {
-    margin-bottom: 5vh;
-  }
-`;
-
-const Image = styled.img`
-  object-fit: contain;
-
-  position: absolute;
-
-  @media (max-width: 1300px) {
-    width: 80%;
-    margin-top: -170px;
-  }
-
-  @media (max-width: 1110px) {
-    display: none;
-  }
-`;
-
-const Description = styled.div`
-  min-height: 30vh;
-  width: 42.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 20px;
-  align-items: flex-start;
-  text-align: justify;
-
-  @media (max-width: 1110px) {
-    width: 100%;
-  }
-`;
-
-const StyledButton = styled(Button)`
-  margin-top: 20px;
-  width: 170px;
-  text-align: center;
-`;
-
-const Bottom = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 1200px) {
-    flex-direction: row;
-  }
-`;
+import Description from './Items/Description';
 
 const StyledParagraph = styled(Paragraph)`
   line-height: 2.7rem;
@@ -149,21 +76,6 @@ const cardVariants: Variants = {
   }
 };
 
-const imageVariants: Variants = {
-  offscreen: {
-    x: '100vw'
-  },
-  onscreen: {
-    x: 100,
-    transition: {
-      type: 'spring',
-      bounce: 0,
-      duration: 0.8,
-      delay: 0.5
-    }
-  }
-};
-
 const imageVariantsOther: Variants = {
   offscreen: {
     x: '100vw'
@@ -208,69 +120,11 @@ const AboutMe = () => {
 
     GetData();
   }, []);
+
   return (
     <BasicTemplate index={1} id="about-me" backgroundColorStyle="black">
       <div style={{ position: 'relative' }}>
-        <Wrapper>
-          {data && (
-            <motion.div
-              className="card-container"
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
-            >
-              <Description>
-                <Heading bold>
-                  <motion.div variants={cardVariants}>{data.title}</motion.div>
-                </Heading>
-                <StyledParagraph bold light>
-                  <motion.div variants={cardVariants}>{data.descriptionTop}</motion.div>
-                </StyledParagraph>
-                <StyledParagraph style={{ marginRight: 40 }} light>
-                  <motion.div variants={cardVariants}>{data.description}</motion.div>
-                </StyledParagraph>
-                <Bottom>
-                  <motion.div variants={cardVariants} style={{ marginTop: 30 }}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 1 }}
-                      animate={{ opacity: 1, scale: [1, 1.1, 1] }}
-                      transition={{
-                        delay: 1.3,
-                        duration: 0.5,
-                        scale: {
-                          duration: 1.5,
-                          delay: 1.4
-                        }
-                      }}
-                    >
-                      <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-                        <StyledButton other href={process.env.PUBLIC_URL + `/data/${data.cvLink}`} target="_blank">
-                          {data.cvButton}
-                        </StyledButton>
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
-                </Bottom>
-              </Description>
-            </motion.div>
-          )}
-          <motion.div
-            className="card-container"
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            <motion.div
-              style={{
-                position: 'absolute',
-                marginTop: '-770px'
-              }}
-              variants={imageVariants}
-            >
-              <Image draggable={false} src={laptop} alt={laptop} />
-            </motion.div>
-          </motion.div>
-        </Wrapper>
+        {data && <Description data={data} />}
         <Row>
           <div style={{ flex: 1 }}>
             <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.8 }}>
