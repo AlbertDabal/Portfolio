@@ -1,4 +1,4 @@
-import { animationShowImage } from 'components/animation/animation';
+import { animationShowImage } from 'animation/animation';
 import { motion } from 'framer-motion';
 import profile from 'images/profile.png';
 import styled from 'styled-components';

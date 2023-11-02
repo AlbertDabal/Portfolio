@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 interface Props {
   children: string;
-  other: boolean;
+  other?: boolean;
   href: string;
   target: string;
 }

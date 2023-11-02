@@ -1,4 +1,4 @@
-import { animationShowElement, animationSlideLeft } from 'components/animation/animation';
+import { animationShowElement, animationSlideLeft } from 'animation/animation';
 import { Heading } from 'components/atoms/Heading/Heading';
 import LinkLocal from 'components/atoms/Link/LinkLocal';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';

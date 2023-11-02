@@ -102,7 +102,7 @@ const MyProject = () => {
                   items: {
                     images: string;
                     name: string;
-                    technology: any;
+                    technology: string;
                     description: string;
                     website: string | undefined;
                     github: string | undefined;
@@ -112,6 +112,7 @@ const MyProject = () => {
                   <Card
                     images={items.images}
                     name={items.name}
+                    technology={items.technology}
                     description={items.description}
                     website={items.website}
                     github={items.github}

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
-import { Heading } from 'components/atoms/Heading/Heading';
+import LinkOutside from 'components/atoms/Link/LinkOutside';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import styled from 'styled-components';
 
 interface Props {
   images?: string;
   name?: string;
-  description?: string;
+  technology: string;
+  description: string;
   github?: string;
   website?: string;
   index: number;
@@ -52,15 +51,6 @@ const Image = styled.img`
   object-fit: contain;
   width: 100%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-
-  /* filter: grayscale(100%); */
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
-  height: 40vh;
-  width: auto;
-  background-position: center;
-  background-size: cover;
-
-  margin-right: 2vw; */
 `;
 
 const Title = styled.h1`
@@ -68,7 +58,8 @@ const Title = styled.h1`
   font-weight: 600;
 `;
 
-const Button = styled.button<Color>`
+const Button = styled.a<Color>`
+  text-decoration: none;
   border: none;
   outline: none;
   color: white;
@@ -90,7 +81,7 @@ const WrapperButton = styled.div`
   gap: 15px;
 `;
 
-const Card = ({ images, name, description, github, website, index }: Props) => {
+const Card = ({ images, name, description, technology, github, website, index }: Props) => {
   return (
     <Wrapper>
       <div style={{ flex: 6 }}>
@@ -98,10 +89,23 @@ const Card = ({ images, name, description, github, website, index }: Props) => {
       </div>
       <Info>
         <Title>{name}</Title>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <i>
+            <div dangerouslySetInnerHTML={{ __html: technology }} />
+          </i>
+        </Paragraph>
         <WrapperButton>
-          <Button>Github</Button>
-          <Button other>Site</Button>
+          {github && (
+            <Button target="_blank" href={github}>
+              Github
+            </Button>
+          )}
+          {website && (
+            <Button target="_blank" href={website} other>
+              Site
+            </Button>
+          )}
         </WrapperButton>
       </Info>
     </Wrapper>
