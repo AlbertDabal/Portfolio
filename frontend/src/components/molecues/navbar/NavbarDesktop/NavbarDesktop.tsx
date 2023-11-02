@@ -70,7 +70,7 @@ export const NavbarDesktop = ({ colorChange }: Props) => {
   useEffect(() => {
     const GetData = async () => {
       try {
-        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const lang = 'en';
         const res = await axios({ url: `./locales/${lang}/Navbar.json` });
         setData(res.data);
       } catch (err) {

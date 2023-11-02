@@ -122,7 +122,7 @@ export const Contacts = () => {
   useEffect(() => {
     const GetData = async () => {
       try {
-        const lang = navigator.language === 'en' || navigator.language === 'pl' ? navigator.language : 'en';
+        const lang = 'en';
         const res = await axios({ url: `./locales/${lang}/Contacts.json` });
         setData(res.data);
       } catch (err) {
