@@ -1,6 +1,7 @@
 import LinkOutside from 'components/atoms/Link/LinkOutside';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import styled from 'styled-components';
+import { motion, Variants } from 'framer-motion';
 
 interface Props {
   images?: string;
@@ -81,12 +82,27 @@ const WrapperButton = styled.div`
   gap: 15px;
 `;
 
+const cardVariants: Variants = {
+  offscreen: {
+    x: '-100vw'
+  },
+  onscreen: {
+    x: 0,
+    transition: {
+      type: 'spring',
+      bounce: 0,
+      duration: 0.8
+    }
+  }
+};
+
 const Card = ({ images, name, description, technology, github, website, index }: Props) => {
   return (
-    <Wrapper>
+    <Wrapper style={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse' }}>
       <div style={{ flex: 6 }}>
         {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
       </div>
+
       <Info>
         <Title>{name}</Title>
         <Paragraph>

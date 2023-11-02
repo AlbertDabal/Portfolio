@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { BasicTemplate } from 'templates/BasicTemplate';
 import Card from './Card/Card';
+import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 const Title = styled.h1`
   background: linear-gradient(182deg, #4924ec 0%, #cb1291 100%);
@@ -89,38 +90,62 @@ const MyProject = () => {
     GetData();
   }, []);
 
+  const AnimatedContainerWhenScroll = ({ children }: any) => (
+    <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true, amount: 0.8 }}>
+      {children}
+    </motion.div>
+  );
+
+  const cardVariants: Variants = {
+    offscreen: {
+      x: '-100vw'
+    },
+    onscreen: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0,
+        duration: 0.8
+      }
+    }
+  };
+
   return (
     <BasicTemplate id="my-project">
       <div style={{ paddingBottom: '15vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Title>{data?.title}</Title>
-        <WrapperProject>
-          {data?.projects &&
-            data.projects
-              .filter((item: any, idx: number) => (moreShow ? idx < 10 : idx < 3))
-              .map(
-                (
-                  items: {
-                    images: string;
-                    name: string;
-                    technology: string;
-                    description: string;
-                    website: string | undefined;
-                    github: string | undefined;
-                  },
-                  index: number
-                ) => (
-                  <Card
-                    images={items.images}
-                    name={items.name}
-                    technology={items.technology}
-                    description={items.description}
-                    website={items.website}
-                    github={items.github}
-                    index={index}
-                  />
-                )
-              )}
-        </WrapperProject>
+        <AnimatePresence>
+          <AnimatedContainerWhenScroll>
+            <WrapperProject>
+              {data?.projects &&
+                data.projects
+                  .filter((item: any, idx: number) => (moreShow ? idx < 10 : idx < 3))
+                  .map(
+                    (
+                      items: {
+                        images: string;
+                        name: string;
+                        technology: string;
+                        description: string;
+                        website: string | undefined;
+                        github: string | undefined;
+                      },
+                      index: number
+                    ) => (
+                      <Card
+                        images={items.images}
+                        name={items.name}
+                        technology={items.technology}
+                        description={items.description}
+                        website={items.website}
+                        github={items.github}
+                        index={index}
+                      />
+                    )
+                  )}
+            </WrapperProject>
+          </AnimatedContainerWhenScroll>
+        </AnimatePresence>
         {!moreShow && (
           <Button onClick={() => setMoreShow(true)}>
             <span>See More...</span>
