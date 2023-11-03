@@ -18,12 +18,8 @@ const Wrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  background-color: #2d2d2d;
-  padding: 50px;
-
-  position: absolute;
-  top: -50px;
-
+  padding: 30px;
+  min-height: 80vh;
   padding-top: 5vh;
   @media (max-width: 1000px) {
     padding-top: 2vh;
@@ -36,23 +32,32 @@ const Info = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 90px;
   margin-bottom: 40px;
+  margin-top: 60px;
 `;
 
 const Form = styled.form`
+  position: absolute;
+  top: -50px;
+  right: 30px;
+  width: 50%;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
+  background-color: white;
+  padding: 50px 30px;
+  border-radius: 15px;
+  box-shadow: 5px 11px 27px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const Footer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 60px;
   @media (max-width: 1000px) {
     flex-direction: column;
@@ -61,7 +66,7 @@ const Footer = styled.footer`
 `;
 
 const StyledHeading = styled(Heading)`
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 
   @media (max-width: 1000px) {
     margin-bottom: 20px;
@@ -75,21 +80,23 @@ const StyledParagraph = styled(Paragraph)`
   }
 `;
 
+const Image = styled.img`
+  width: 25px;
+  height: auto;
+`;
+
 const Submit = styled.input`
-  transition: 0.8s all ease;
-  &:hover {
-    transform: perspective(1000px) translateZ(50px);
-  }
   cursor: pointer;
   border: none;
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
-  padding: 25px 80px;
+  padding: 22px 35px;
   border-radius: 15px;
-  background: linear-gradient(188deg, #2d27ff 0%, #ff0a6c 100%);
+  background: black;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: ${({ theme }) => 'white'};
   text-decoration: none;
+  align-self: flex-end;
 `;
 
 export const Contacts = () => {
@@ -134,38 +141,49 @@ export const Contacts = () => {
   }, []);
 
   return (
-    <BasicTemplate index={4} backgroundColorStyle="black">
-      <div style={{ position: 'relative' }}>
-        <Wrapper id="contacts">
-          {done && <Alert />}
-          {data && (
-            <div style={{ width: '100%' }}>
-              <StyledHeading bold>{data.title}</StyledHeading>
-              <Footer>
-                <Form onSubmit={sendEmail}>
-                  <Input name="email" placeholder={data.emailPlaceholder} />
-                  <TextArea name="message" placeholder={data.textPlaceholder} />
-                  <Submit type="submit" value={data.buttonSend} />
-                </Form>
-                <Info>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src={phone} />
-                    <Paragraph bold other>
-                      {data.phoneValue}
-                    </Paragraph>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <img src={email} />
-                    <Paragraph bold other>
-                      {data.email}
-                    </Paragraph>
-                  </div>
-                </Info>
-              </Footer>
-            </div>
-          )}
-        </Wrapper>
-      </div>
-    </BasicTemplate>
+    <div id="contacts" style={{ width: '100%', paddingTop: 100 }}>
+      <BasicTemplate backgroundColorStyle="linear-gradient(75deg, #2D27FF 33.05%, #FF0A6C 99.47%), #FFF">
+        <div style={{ position: 'relative' }}>
+          <Wrapper>
+            {done && <Alert />}
+            {data && (
+              <div style={{ width: '100%' }}>
+                <Footer>
+                  <Info>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+                      <StyledHeading bold>{data.title}</StyledHeading>
+                      <Paragraph light>
+                        <div dangerouslySetInnerHTML={{ __html: data.subtitle }} />
+                      </Paragraph>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <Image src={phone} />
+                        <Paragraph light>{data.phoneValue}</Paragraph>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <Image src={email} />
+                        <Paragraph light>{data.email}</Paragraph>
+                      </div>
+                    </div>
+                  </Info>
+                  <Form onSubmit={sendEmail}>
+                    <div style={{ width: '100%' }}>
+                      <Paragraph bold>{data.emailPlaceholder}</Paragraph>
+                      <Input name="email" />
+                    </div>
+                    <div style={{ width: '100%' }}>
+                      <Paragraph bold>Message</Paragraph>
+                      <TextArea name="message" placeholder={data.textPlaceholder} />
+                    </div>
+                    <Submit type="submit" value={data.buttonSend} />
+                  </Form>
+                </Footer>
+              </div>
+            )}
+          </Wrapper>
+        </div>
+      </BasicTemplate>
+    </div>
   );
 };

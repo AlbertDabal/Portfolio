@@ -35,6 +35,7 @@ export const BasicTemplate = ({ children, index, id, backgroundColorStyle }: Pro
   return (
     <WrapperAll backgroundColorStyle={backgroundColorStyle}>
       <Wrapper id={id}>
+        {console.log('id', id)}
         <Main>{children}</Main>
       </Wrapper>
     </WrapperAll>
