@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   @media (max-width: 1000px) {
     padding-top: 2vh;
     top: 50px;
-    padding: 50px 25px;
+    padding: 20px 0px;
   }
 `;
 
@@ -35,13 +35,21 @@ const Info = styled.div`
   gap: 90px;
   margin-bottom: 40px;
   margin-top: 60px;
+
+  @media (max-width: 1000px) {
+    margin-top: 20px;
+  }
 `;
 
 const Form = styled.form`
-  position: absolute;
-  top: -50px;
-  right: 30px;
-  width: 50%;
+  @media (min-width: 1000px) {
+    position: absolute;
+    top: -50px;
+    right: 30px;
+    width: 50%;
+  }
+
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -49,6 +57,11 @@ const Form = styled.form`
   align-items: flex-start;
   background-color: white;
   padding: 50px 30px;
+
+  @media (max-width: 1000px) {
+    padding: 50px 15px 20px 15px;
+  }
+
   border-radius: 15px;
   box-shadow: 5px 11px 27px 0px rgba(0, 0, 0, 0.25);
 `;
@@ -62,6 +75,7 @@ const Footer = styled.footer`
   @media (max-width: 1000px) {
     flex-direction: column;
     margin-top: 2vh;
+    gap: 30px;
   }
 `;
 
@@ -74,10 +88,7 @@ const StyledHeading = styled(Heading)`
 `;
 
 const StyledParagraph = styled(Paragraph)`
-  font-size: ${({ theme }) => theme.fontSize.l};
-  @media (max-width: 800px) {
-    font-size: ${({ theme }) => theme.fontSize.m};
-  }
+  color: black;
 `;
 
 const Image = styled.img`
@@ -97,6 +108,19 @@ const Submit = styled.input`
   color: ${({ theme }) => 'white'};
   text-decoration: none;
   align-self: flex-end;
+
+  @media (max-width: 1000px) {
+    margin-top: 30px;
+  }
+`;
+
+const MainWrapper = styled.div`
+  padding-top: 100px;
+  width: 100%;
+
+  @media (max-width: 1000px) {
+    padding-top: 0px;
+  }
 `;
 
 export const Contacts = () => {
@@ -141,7 +165,7 @@ export const Contacts = () => {
   }, []);
 
   return (
-    <div id="contacts" style={{ width: '100%', paddingTop: 100 }}>
+    <MainWrapper id="contacts">
       <BasicTemplate backgroundColorStyle="linear-gradient(75deg, #2D27FF 33.05%, #FF0A6C 99.47%), #FFF">
         <div style={{ position: 'relative' }}>
           <Wrapper>
@@ -169,11 +193,11 @@ export const Contacts = () => {
                   </Info>
                   <Form onSubmit={sendEmail}>
                     <div style={{ width: '100%' }}>
-                      <Paragraph bold>{data.emailPlaceholder}</Paragraph>
+                      <StyledParagraph bold>{data.emailPlaceholder}</StyledParagraph>
                       <Input name="email" />
                     </div>
                     <div style={{ width: '100%' }}>
-                      <Paragraph bold>Message</Paragraph>
+                      <StyledParagraph bold>Message</StyledParagraph>
                       <TextArea name="message" placeholder={data.textPlaceholder} />
                     </div>
                     <Submit type="submit" value={data.buttonSend} />
@@ -184,6 +208,6 @@ export const Contacts = () => {
           </Wrapper>
         </div>
       </BasicTemplate>
-    </div>
+    </MainWrapper>
   );
 };
