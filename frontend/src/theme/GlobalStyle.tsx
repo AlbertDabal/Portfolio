@@ -26,11 +26,22 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         user-select:none;
 
-
+ ::-webkit-scrollbar {
+    width: 0.7rem;
 
     }
 
    
+       
+}
+
+::-webkit-scrollbar-thumb {
+    background: #04023c;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
 
       
       
