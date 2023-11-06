@@ -48,12 +48,12 @@ export const Alert = ({ isError }: Wrapper) => {
         <Wrapper isError={isError}>
           {!isError ? (
             <>
-              <img src={done} />
+              <img src={done} alt="done" />
               <span>Just sent me an email, thanks ;)</span>
             </>
           ) : (
             <>
-              <img src={error} />
+              <img src={error} alt="error" />
               <span>Error, thanks for reporting to me </span>
             </>
           )}

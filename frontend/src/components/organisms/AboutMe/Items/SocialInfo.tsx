@@ -58,13 +58,13 @@ const SocialInfo = () => {
       <motion.div variants={infoVariant}>
         <GroupSocial>
           <IconBox target="_blank" href="https://github.com/AlbertDabal">
-            <img src={github} />
+            <img alt="github" src={github} />
             <Paragraph bold big light>
               Github
             </Paragraph>
           </IconBox>
           <IconBox target="_blank" href="https://www.linkedin.com/in/albert-d%C4%85bal/">
-            <img src={linkedin} />
+            <img alt="linkedin" src={linkedin} />
             <Paragraph bold big light>
               Linkedin
             </Paragraph>

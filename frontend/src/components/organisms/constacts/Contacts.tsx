@@ -191,11 +191,11 @@ export const Contacts = () => {
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <Image src={phone} />
+                        <Image alt="phone" src={phone} />
                         <Paragraph light>{data.phoneValue}</Paragraph>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <Image src={email} />
+                        <Image alt="email" src={email} />
                         <Paragraph light>{data.email}</Paragraph>
                       </div>
                     </div>
@@ -203,11 +203,11 @@ export const Contacts = () => {
                   <Form onSubmit={sendEmail}>
                     <div style={{ width: '100%' }}>
                       <StyledParagraph bold>{data.emailPlaceholder}</StyledParagraph>
-                      <Input name="email" />
+                      <Input name="email" aria-labelledby="email" />
                     </div>
                     <div style={{ width: '100%' }}>
                       <StyledParagraph bold>Message</StyledParagraph>
-                      <TextArea name="message" placeholder={data.textPlaceholder} />
+                      <TextArea name="message" placeholder={data.textPlaceholder} aria-labelledby="message" />
                     </div>
 
                     <motion.div

@@ -107,6 +107,7 @@ const MyProject = () => {
                     description: string;
                     website: string | undefined;
                     github: string | undefined;
+                    alt: string;
                   },
                   index: number
                 ) => (
@@ -117,6 +118,7 @@ const MyProject = () => {
                     description={items.description}
                     website={items.website}
                     github={items.github}
+                    alt={items.alt}
                     index={index}
                   />
                 )

@@ -11,6 +11,7 @@ interface Props {
   github?: string;
   website?: string;
   index: number;
+  alt: string;
 }
 
 interface Color {
@@ -99,11 +100,13 @@ const cardVariants: Variants = {
   }
 };
 
-const Card = ({ images, name, description, technology, github, website, index }: Props) => {
+const Card = ({ images, name, description, technology, github, website, index, alt }: Props) => {
   return (
     <Wrapper isReverse={index % 2 === 0}>
       <div style={{ flex: 6 }}>
-        {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
+        {images && (
+          <Image alt={alt} width="100" height="300" src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />
+        )}
       </div>
 
       <Info>

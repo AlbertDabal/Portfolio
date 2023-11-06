@@ -93,7 +93,7 @@ const MainSkills = () => {
       <Row>
         <AnimatedContainerWhenScroll>
           <motion.div variants={cardVariants}>
-            <img style={{ width: '100%', height: 'auto' }} src={profile2} />
+            <img alt="profile2" style={{ width: '100%', height: 'auto' }} src={profile2} />
           </motion.div>
         </AnimatedContainerWhenScroll>
       </Row>
@@ -104,7 +104,7 @@ const MainSkills = () => {
               <Heading bold>Main skills</Heading>
               <Box>
                 {mainSkillsData.map((item) => (
-                  <img src={item} />
+                  <img alt="skills" src={item} />
                 ))}
               </Box>
             </Column>
