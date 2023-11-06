@@ -12,7 +12,7 @@ const HamburgerMenu = ({ isOpen, setIsOpen }: Props) => {
     <div>
       <input style={{ display: 'none' }} type="checkbox" id="checkbox" checked={isOpen} />
       <label className="burger" htmlFor="checkbox" onClick={() => setIsOpen(!isOpen)}>
-        <button>
+        <button aria-label="menu">
           <div className="container top">
             <div className="line top"></div>
           </div>

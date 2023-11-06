@@ -42,7 +42,7 @@ const Wrapper = styled.nav`
   padding: 0em 2em;
 `;
 
-const Menu = styled.ul`
+const Menu = styled.div`
   display: flex;
   align-items: center;
   width: 600px;

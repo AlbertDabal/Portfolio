@@ -203,11 +203,16 @@ export const Contacts = () => {
                   <Form onSubmit={sendEmail}>
                     <div style={{ width: '100%' }}>
                       <StyledParagraph bold>{data.emailPlaceholder}</StyledParagraph>
-                      <Input name="email" aria-labelledby="email" />
+                      <Input name="email" aria-labelledby="email" aria-label="email" />
                     </div>
                     <div style={{ width: '100%' }}>
                       <StyledParagraph bold>Message</StyledParagraph>
-                      <TextArea name="message" placeholder={data.textPlaceholder} aria-labelledby="message" />
+                      <TextArea
+                        name="message"
+                        placeholder={data.textPlaceholder}
+                        aria-labelledby="message"
+                        aria-label="message"
+                      />
                     </div>
 
                     <motion.div
