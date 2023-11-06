@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Link, animateScroll as scroll } from 'react-scroll';
-import logo from 'images/logo.png';
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
-import { Button } from 'components/atoms/Button/Button';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-scroll';
+import styled from 'styled-components';
 
 interface Props {
   colorChange?: boolean;

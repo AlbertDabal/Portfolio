@@ -1,17 +1,16 @@
-import { Button } from 'components/atoms/Button/Button';
+import axios from 'axios';
+import { Alert } from 'components/atoms/Alert/Alert';
 import { Heading } from 'components/atoms/Heading/Heading';
 import { Input } from 'components/atoms/Input/Input';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import { TextArea } from 'components/atoms/Textarea/TextArea';
-import React, { FormEvent, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { BasicTemplate } from 'templates/BasicTemplate';
 import emailjs from 'emailjs-com';
-import { Alert } from 'components/atoms/Alert/Alert';
-import axios from 'axios';
+import { motion } from 'framer-motion';
 import email from 'images/technology-icon/email.png';
 import phone from 'images/technology-icon/phone.png';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { BasicTemplate } from 'templates/BasicTemplate';
 
 const Wrapper = styled.div`
   display: flex;
