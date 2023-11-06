@@ -118,6 +118,7 @@ export const NavbarMobile = () => {
           data.map((item: { link: string; name: string }) => (
             <motion.ul variants={containerVariants} initial="hidden" animate="visable">
               <StyledLink
+                href=""
                 onClick={() => setIsOpen(!isOpen)}
                 activeClass="active"
                 to={item.link}

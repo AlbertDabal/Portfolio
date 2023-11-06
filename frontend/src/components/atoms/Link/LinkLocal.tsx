@@ -33,7 +33,7 @@ export const StyledLinkTest = styled(Link)`
 const LinkLocal = (props: Props) => {
   return (
     <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
-      <StyledLinkTest {...props}></StyledLinkTest>
+      <StyledLinkTest href="" {...props}></StyledLinkTest>
     </motion.div>
   );
 };

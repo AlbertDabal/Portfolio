@@ -25,6 +25,7 @@ const StyledLink = styled(Link)`
   font-weight: 800;
   color: ${({ theme }) => 'hsla(0, 0%, 71%, 1)'};
   cursor: pointer;
+  text-decoration: none;
   user-select: none;
   padding: 1.5em 1em;
   text-transform: capitalize;
@@ -81,13 +82,14 @@ export const NavbarDesktop = ({ colorChange }: Props) => {
   return (
     <WrapperMain colorChange={colorChange}>
       <Wrapper>
-        <Link to="main" spy={true} smooth={true} offset={-70} duration={500}>
+        <Link href="" to="main" spy={true} smooth={true} offset={-70} duration={500}>
           <Logo alt="logo" src={process.env.PUBLIC_URL + '/images/logo.webp'} />
         </Link>
         <Menu>
           {data &&
             data.map((item: { link: string; name: string }, index: any) => (
               <StyledLink
+                href=""
                 key={index}
                 activeClass="active"
                 to={item.link}
