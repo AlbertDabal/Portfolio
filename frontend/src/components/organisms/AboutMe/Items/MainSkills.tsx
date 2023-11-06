@@ -103,8 +103,8 @@ const MainSkills = () => {
             <Column>
               <Heading bold>Main skills</Heading>
               <Box>
-                {mainSkillsData.map((item) => (
-                  <img alt="skills" src={item} />
+                {mainSkillsData.map((item, index) => (
+                  <img key={index} alt="skills" src={item} />
                 ))}
               </Box>
             </Column>
@@ -112,8 +112,8 @@ const MainSkills = () => {
               <Heading bold>Other skills</Heading>
               <StyledParagraph big light bold>
                 <List>
-                  {otherSkillsData.map((item) => (
-                    <li>{item}</li>
+                  {otherSkillsData.map((item, index) => (
+                    <li key={index}>{item}</li>
                   ))}
                 </List>
               </StyledParagraph>

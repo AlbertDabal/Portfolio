@@ -50,11 +50,11 @@ const Description = ({ data }: Props) => {
         <Title>{subtitle}</Title>
       </motion.div>
 
-      <motion.p variants={animationShowElement(1)} initial="hidden" animate="visable">
+      <motion.div variants={animationShowElement(1)} initial="hidden" animate="visable">
         <StyledParagraph light>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
+          <span dangerouslySetInnerHTML={{ __html: description }} />
         </StyledParagraph>
-      </motion.p>
+      </motion.div>
       <Button button={button} />
     </Wrapper>
   );

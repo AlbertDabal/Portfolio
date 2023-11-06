@@ -112,6 +112,7 @@ const MyProject = () => {
                   index: number
                 ) => (
                   <Card
+                    key={index}
                     images={items.images}
                     name={items.name}
                     technology={items.technology}

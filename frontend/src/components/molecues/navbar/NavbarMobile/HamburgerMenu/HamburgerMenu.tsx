@@ -10,7 +10,7 @@ interface Props {
 const HamburgerMenu = ({ isOpen, setIsOpen }: Props) => {
   return (
     <div>
-      <input style={{ display: 'none' }} type="checkbox" id="checkbox" checked={isOpen} />
+      <input style={{ display: 'none' }} type="checkbox" id="checkbox" onChange={() => null} checked={isOpen} />
       <label className="burger" htmlFor="checkbox" onClick={() => setIsOpen(!isOpen)}>
         <button aria-label="menu">
           <div className="container top">

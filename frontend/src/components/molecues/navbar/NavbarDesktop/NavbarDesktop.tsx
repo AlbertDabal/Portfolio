@@ -86,8 +86,16 @@ export const NavbarDesktop = ({ colorChange }: Props) => {
         </Link>
         <Menu>
           {data &&
-            data.map((item: { link: string; name: string }) => (
-              <StyledLink activeClass="active" to={item.link} spy={true} smooth={true} offset={-60} duration={500}>
+            data.map((item: { link: string; name: string }, index: any) => (
+              <StyledLink
+                key={index}
+                activeClass="active"
+                to={item.link}
+                spy={true}
+                smooth={true}
+                offset={-60}
+                duration={500}
+              >
                 {item.name}
               </StyledLink>
             ))}

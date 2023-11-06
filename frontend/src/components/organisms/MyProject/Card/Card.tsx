@@ -102,7 +102,7 @@ const cardVariants: Variants = {
 
 const Card = ({ images, name, description, technology, github, website, index, alt }: Props) => {
   return (
-    <Wrapper isReverse={index % 2 === 0}>
+    <Wrapper key={index} isReverse={index % 2 === 0}>
       <div style={{ flex: 6 }}>
         {images && (
           <Image alt={alt} width="100" height="300" src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />
