@@ -17,18 +17,25 @@ interface Color {
   other?: boolean;
 }
 
-const Wrapper = styled.div`
+interface Wrapper {
+  isReverse: boolean;
+}
+
+const Wrapper = styled.div<Wrapper>`
   width: 100%;
   min-height: 40vh;
   height: 100%;
   background-color: white;
   padding: 30px;
+  display: flex;
+
+  flex-direction: ${({ isReverse }) => (isReverse ? 'row' : 'row-reverse')};
+
   @media (max-width: 1100px) {
     padding: 20px;
+    flex-direction: column;
   }
 
-  display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 20px;
   justify-content: space-between;
@@ -71,10 +78,6 @@ const Button = styled.a<Color>`
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.4s all ease;
-  &:hover {
-    transform: perspective(1000px) translateZ(50px);
-  }
 `;
 
 const WrapperButton = styled.div`
@@ -98,7 +101,7 @@ const cardVariants: Variants = {
 
 const Card = ({ images, name, description, technology, github, website, index }: Props) => {
   return (
-    <Wrapper style={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse' }}>
+    <Wrapper isReverse={index % 2 === 0}>
       <div style={{ flex: 6 }}>
         {images && <Image src={`${process.env.PUBLIC_URL + '/images/projects' + images}`} />}
       </div>
@@ -113,14 +116,26 @@ const Card = ({ images, name, description, technology, github, website, index }:
         </Paragraph>
         <WrapperButton>
           {github && (
-            <Button target="_blank" href={github}>
-              Github
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5 }}
+              style={{ display: 'flex', alignSelf: 'flex-end' }}
+            >
+              <Button target="_blank" href={github}>
+                Github
+              </Button>
+            </motion.div>
           )}
           {website && (
-            <Button target="_blank" href={website} other>
-              Site
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5 }}
+              style={{ display: 'flex', alignSelf: 'flex-end' }}
+            >
+              <Button target="_blank" href={website} other>
+                Site
+              </Button>
+            </motion.div>
           )}
         </WrapperButton>
       </Info>

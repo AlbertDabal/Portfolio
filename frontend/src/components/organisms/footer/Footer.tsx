@@ -13,7 +13,7 @@ const Footer = () => {
       }}
     >
       Copyright © 2023 albertdabal.pl | All Rights Reserved Realization:{' '}
-      <a style={{ color: 'white' }} href="https://github.com/AlbertDabal">
+      <a style={{ color: 'white' }} target="_blank" href="https://github.com/AlbertDabal">
         AlbertDabal
       </a>
     </div>

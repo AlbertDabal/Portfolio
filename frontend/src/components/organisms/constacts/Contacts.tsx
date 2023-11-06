@@ -11,6 +11,7 @@ import { Alert } from 'components/atoms/Alert/Alert';
 import axios from 'axios';
 import email from 'images/technology-icon/email.png';
 import phone from 'images/technology-icon/phone.png';
+import { motion, Variants } from 'framer-motion';
 
 const Wrapper = styled.div`
   display: flex;
@@ -164,6 +165,8 @@ export const Contacts = () => {
     GetData();
   }, []);
 
+  const cardVariants: Variants = {};
+
   return (
     <MainWrapper id="contacts">
       <BasicTemplate backgroundColorStyle="linear-gradient(75deg, #2D27FF 33.05%, #FF0A6C 99.47%), #FFF">
@@ -200,7 +203,14 @@ export const Contacts = () => {
                       <StyledParagraph bold>Message</StyledParagraph>
                       <TextArea name="message" placeholder={data.textPlaceholder} />
                     </div>
-                    <Submit type="submit" value={data.buttonSend} />
+
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      style={{ display: 'flex', alignSelf: 'flex-end' }}
+                    >
+                      <Submit type="submit" value={data.buttonSend} />
+                    </motion.div>
                   </Form>
                 </Footer>
               </div>

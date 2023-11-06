@@ -15,7 +15,10 @@ export const StyledLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: 800;
   padding: 15px 50px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 180px;
   color: ${({ theme }) => 'white'};
   border-radius: 15px;
   background: linear-gradient(188deg, #2d27ff 0%, #ff0a6c 100%);
@@ -25,8 +28,6 @@ export const StyledLink = styled.a`
 `;
 
 const LinkOutside = (props: Props) => {
-  console.log('props', props);
-
   return (
     <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
       <StyledLink {...props}></StyledLink>
