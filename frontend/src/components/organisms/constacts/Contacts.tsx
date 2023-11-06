@@ -11,7 +11,7 @@ import { Alert } from 'components/atoms/Alert/Alert';
 import axios from 'axios';
 import email from 'images/technology-icon/email.png';
 import phone from 'images/technology-icon/phone.png';
-import { motion, Variants } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Wrapper = styled.div`
   display: flex;
@@ -125,27 +125,36 @@ const MainWrapper = styled.div`
 `;
 
 export const Contacts = () => {
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState<any>(null);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
     const target: any = e.currentTarget;
+
     const reset: any = e.target;
 
-    console.log(e.currentTarget);
+    emailjs
+      .sendForm(
+        `${process.env.REACT_APP_SERVICE_ID}`,
+        `${process.env.REACT_APP_YOUR_TEMPLATE_ID}`,
+        target,
+        `${process.env.REACT_APP_YOUR_PUBLIC_KEY}`
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setDone(true);
+          setTimeout(() => {
+            setDone(null);
+          }, 2500);
+        },
+        (error) => {
+          setDone(false);
+          console.log(error.text);
+        }
+      );
 
-    emailjs.sendForm('gmail', 'template_xhvqv3e', target, `${process.env.REACT_APP_YOUR_USER_ID}`).then(
-      (result) => {
-        console.log(result.text);
-        setDone(false);
-        setTimeout(() => {}, 2000);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
-    setDone(true);
     reset.reset();
   };
 
@@ -165,14 +174,12 @@ export const Contacts = () => {
     GetData();
   }, []);
 
-  const cardVariants: Variants = {};
-
   return (
     <MainWrapper id="contacts">
       <BasicTemplate backgroundColorStyle="linear-gradient(75deg, #2D27FF 33.05%, #FF0A6C 99.47%), #FFF">
         <div style={{ position: 'relative' }}>
           <Wrapper>
-            {done && <Alert />}
+            {done !== null && <Alert isError={done === false} />}
             {data && (
               <div style={{ width: '100%' }}>
                 <Footer>
