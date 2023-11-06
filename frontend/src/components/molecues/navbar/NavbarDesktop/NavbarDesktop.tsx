@@ -82,7 +82,7 @@ export const NavbarDesktop = ({ colorChange }: Props) => {
     <WrapperMain colorChange={colorChange}>
       <Wrapper>
         <Link to="main" spy={true} smooth={true} offset={-70} duration={500}>
-          <Logo src={process.env.PUBLIC_URL + '/images/logo.png'} />
+          <Logo alt="logo" src={process.env.PUBLIC_URL + '/images/logo.webp'} />
         </Link>
         <Menu>
           {data &&

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import github from 'images/technology-icon/github.png';
-import linkedin from 'images/technology-icon/linkedin.png';
+import github from 'images/technology-icon/github.webp';
+import linkedin from 'images/technology-icon/linkedin.webp';
 import styled from 'styled-components';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 

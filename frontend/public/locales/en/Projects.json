@@ -7,36 +7,41 @@
             "name": "Fotostudyjne",
             "description": "Web page for fotostudyjne.pl which is a presentation of Company services.",
              "technology":"React, TypeScript, Styled Components",
-            "images": "/project-1.png",
+            "images": "/project-1.webp",
+            "alt": "project-fotostudyjne",
             "website": "http://fotostudyjne.pl"
         },
         {
             "name": "Mines",
             "description": "Web page for mines.pl which gets posts from facebook with specific tag and shows actual status severs.",
             "technology":"React, TypeScript, Styled Components, Facebook API",
-            "images": "/project-3.png",
+            "images": "/project-3.webp",
+             "alt": "project-mines",
             "website": "https://mines.albertdabal.pl"
         },
          {
             "name": "DomyTestowa",
             "description": "Sample website for a company that sells houses.",
             "technology":"React, TypeScript, Styled Components",
-            "images": "/project-7.png",
+            "images": "/project-7.webp",
+             "alt": "project-DomyTestowa",
             "website": "https://house.albertdabal.pl/"
         },
          {
             "name": "Portfolio",
             "description": "Web page which shows portfolio.",
              "technology":"React, TypeScript, Styled Components, Framer Motion",
-            "images": "/project-2.png",
+            "images": "/project-2.webp",
             "website": "https://albertdabal.pl",
+             "alt": "project-portfolio",
             "github": "https://github.com/AlbertDabal/Portfolio"
         },
         {
             "name": "Edziekanat",
             "description": "Web page of virtual dean's office which was created in a team. My work in a project was to create a frontend.",
             "technology": "React, Styled Components",
-            "images": "/project-4.png",
+            "images": "/project-4.webp",
+             "alt": "project-edziekanat",
             "github": "https://github.com/AlbertDabal/E-dziekanat"
         },
         {
@@ -44,21 +49,24 @@
            
             "description": "Web page which allows to create tasks which we want to do.",
              "technology": "React, Styled Components, Mongodb, Express",
-            "images": "/project-5.png",
+            "images": "/project-5.webp",
+             "alt": "project-todoList",
             "github": "https://github.com/AlbertDabal/toDoList"
         },
         {
             "name": "Mój zwierzak",
             "description": "Web page which monitors if on the camera any dog appears. It was created in a group, my task was a frontend.",
             "technology": "React, Styled Components",
-            "images": "/project-6.png",
+            "images": "/project-6.webp",
+             "alt": "project-MojZwierzak",
             "github": "https://github.com/AlbertDabal/moj_zwierzak"
         },
         {
             "name": "Fitness diary",
             "description": "App for planning workouts and recording progress at the gym.",
             "technology": "React Native, Redux, Express, MongoDB, Google API",
-            "images": "/project-8.png"
+            "images": "/project-8.webp",
+            "alt": "project-fitnestDiary"
         }
     ]
 }

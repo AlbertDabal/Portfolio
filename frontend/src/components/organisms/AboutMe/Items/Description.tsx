@@ -2,7 +2,7 @@ import { Heading } from 'components/atoms/Heading/Heading';
 import LinkOutside from 'components/atoms/Link/LinkOutside';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
 import { motion, Variants } from 'framer-motion';
-import laptop from 'images/laptop.png';
+import laptop from 'images/laptop.webp';
 import styled from 'styled-components';
 
 interface Props {

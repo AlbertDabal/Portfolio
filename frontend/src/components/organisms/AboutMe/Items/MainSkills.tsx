@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 import { Heading } from 'components/atoms/Heading/Heading';
 import { motion, Variants } from 'framer-motion';
-import profile2 from 'images/profile2.png';
-import css from 'images/technology-icon/css.png';
-import html from 'images/technology-icon/html.png';
-import js from 'images/technology-icon/js.png';
-import react from 'images/technology-icon/react.png';
-import ts from 'images/technology-icon/ts.png';
+import profile2 from 'images/profile2.webp';
+import css from 'images/technology-icon/css.webp';
+import html from 'images/technology-icon/html.webp';
+import js from 'images/technology-icon/js.webp';
+import react from 'images/technology-icon/react.webp';
+import ts from 'images/technology-icon/ts.webp';
 
 const Wrapper = styled.div`
   display: flex;

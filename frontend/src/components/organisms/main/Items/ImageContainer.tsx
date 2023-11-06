@@ -1,6 +1,6 @@
 import { animationShowImage } from 'animation/animation';
 import { motion } from 'framer-motion';
-import profile from 'images/profile.png';
+import profile from 'images/profile.webp';
 import styled from 'styled-components';
 
 const Image = styled.img`
