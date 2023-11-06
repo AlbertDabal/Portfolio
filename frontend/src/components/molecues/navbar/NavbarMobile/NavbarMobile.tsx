@@ -48,6 +48,7 @@ const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: 800;
   color: white;
+  text-decoration: none;
   cursor: pointer;
   user-select: none;
   text-transform: capitalize;
